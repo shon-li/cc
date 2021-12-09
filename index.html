@@ -92,14 +92,14 @@
       i = document.getElementById("i").value * 5000;
       j = document.getElementById("j").value * 10000;
       k = document.getElementById("k").value * 100;
-      var till = a + b + c + d + e + f + g + h + i + j + k;
-      var cash = (till - ty)/100;
-      if (cash < 0) {cash = 0};
-      var total = (cash + pos)/100;
-      document.getElementById("pos").innerHTML = pos;
+      var till = a+b+c+d+e+f+g+h+i+j+k;
+      var cash = (till - ty);
+      var total = (cash + pos);
+      if (cash < 0) {total = pos};
+      document.getElementById("pos").innerHTML = pos/100;
       document.getElementById("till").innerHTML = till/100;
-      document.getElementById("cash").innerHTML = cash;
-      document.getElementById("total").innerHTML = total;
+      document.getElementById("cash").innerHTML = cash/100;
+      document.getElementById("total").innerHTML = total/100;
     }
   </script>
 </html>

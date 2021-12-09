@@ -12,7 +12,7 @@
     <input id="ty" type="text" name="till yesterday" value="">
     <br>
     <p>What's the number on POS machine today?</p>
-    <input id="pos" type="text" name="pos total" value="">
+    <input id="pt" type="text" name="pos total" value="">
     <br>
     <p>Please fill in the count numbers below.</p>
     <table>
@@ -61,8 +61,8 @@
         <td><input id="k" type="text" name="EXTRA" value=""></td>
       </tr>
     </table>
-    <button onclick="calculate()" type="button" name="CALCULATE">CALCULATE</button>
-    <table style="text-align:centre;">
+
+    <table style="text-align:center;">
       <tr>
         <th>TOTAL</th>
         <th>POS</th>
@@ -80,7 +80,7 @@
   <script type="text/javascript">
     function calculate(){
       ty = document.getElementById("ty").value * 100;
-      pos = document.getElementById("pos").value * 100;
+      pos = document.getElementById("pt").value * 100;
       a = document.getElementById("a").value * 10;
       b = document.getElementById("b").value * 20;
       c = document.getElementById("c").value * 50;
@@ -101,5 +101,6 @@
       document.getElementById("cash").innerHTML = cash/100;
       document.getElementById("total").innerHTML = total/100;
     }
+    var auto = setInterval(calculate, 500)
   </script>
 </html>

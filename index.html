@@ -94,6 +94,7 @@
       k = document.getElementById("k").value * 100;
       var till = a + b + c + d + e + f + g + h + i + j + k;
       var cash = (till - ty)/100;
+      if (cash < 0) {cash = 0};
       var total = (cash + pos)/100;
       document.getElementById("pos").innerHTML = pos;
       document.getElementById("till").innerHTML = till/100;

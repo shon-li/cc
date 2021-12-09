@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>cash calculator</title>
+    <style media="screen">
+      table-left{background-color:red;text-align:right;}
+    </style>
+  </head>
+  <body>
+    <p>What's the till number of yesterday?</p>
+    <input id="ty" type="text" name="till yesterday" value="">
+    <br>
+    <p>What's the number on POS machine today?</p>
+    <input id="pos" type="text" name="pos total" value="">
+    <br>
+    <p>Please fill in the count numbers below.</p>
+    <table>
+      <tr>
+        <td style="text-align:right;">10 CENT</td>
+        <td><input id="a" type="text" name="10 CENT" value=""></td>
+      </tr>
+      <tr>
+        <td style="text-align:right;">20 CENT</td>
+        <td><input id="b" type="text" name="20 CENT" value=""></td>
+      </tr>
+      <tr>
+        <td style="text-align:right;">50 CENT</td>
+        <td><input id="c" type="text" name="50 CENT" value=""></td>
+      </tr>
+      <tr>
+        <td style="text-align:right;">1 DOLLAR</td>
+        <td><input  id="d" type="text" name="1 DOLLAR" value=""></td>
+      </tr>
+      <tr>
+        <td style="text-align:right;">2 DOLLAR</td>
+        <td><input  id="e" type="text" name="2 DOLLAR" value=""></td>
+      </tr>
+      <tr>
+        <td style="text-align:right;">5 DOLLAR</td>
+        <td><input  id="f" type="text" name="5 DOLLAR" value=""></td>
+      </tr>
+      <tr>
+        <td style="text-align:right;">10 DOLLAR</td>
+        <td><input  id="g" type="text" name="10 DOLLAR" value=""></td>
+      </tr>
+      <tr>
+        <td style="text-align:right;">20 DOLLAR</td>
+        <td><input  id="h" type="text" name="20 DOLLAR" value=""></td>
+      </tr>
+      <tr>
+        <td style="text-align:right;">50 DOLLAR</td>
+        <td><input id="i" type="text" name="50 DOLLAR" value=""></td>
+      </tr>
+      <tr>
+        <td style="text-align:right;">100 DOLLAR</td>
+        <td><input id="j" type="text" name="100 DOLLAR" value=""></td>
+      </tr>
+      <tr>
+        <td style="text-align:right;">EXTRA</td>
+        <td><input id="k" type="text" name="EXTRA" value=""></td>
+      </tr>
+    </table>
+    <button onclick="calculate()" type="button" name="CALCULATE">CALCULATE</button>
+    <table style="text-align:centre;">
+      <tr>
+        <th>TOTAL</th>
+        <th>POS</th>
+        <th>CASH</th>
+        <th>TILL</th>
+      </tr>
+      <tr>
+        <td id="total">-</td>
+        <td id="pos">-</td>
+        <td id="cash">-</td>
+        <td id="till">-</td>
+      </tr>
+    </table>
+  </body>
+  <script type="text/javascript">
+    function calculate(){
+      ty = document.getElementById("ty").value * 100;
+      pos = document.getElementById("pos").value * 100;
+      a = document.getElementById("a").value * 10;
+      b = document.getElementById("b").value * 20;
+      c = document.getElementById("c").value * 50;
+      d = document.getElementById("d").value * 100;
+      e = document.getElementById("e").value * 200;
+      f = document.getElementById("f").value * 500;
+      g = document.getElementById("g").value * 1000;
+      h = document.getElementById("h").value * 2000;
+      i = document.getElementById("i").value * 5000;
+      j = document.getElementById("j").value * 10000;
+      k = document.getElementById("k").value * 100;
+      var till = a + b + c + d + e + f + g + h + i + j + k;
+      var cash = (till - ty)/100;
+      var total = (cash + pos)/100;
+      document.getElementById("pos").innerHTML = pos;
+      document.getElementById("till").innerHTML = till/100;
+      document.getElementById("cash").innerHTML = cash;
+      document.getElementById("total").innerHTML = total;
+    }
+  </script>
+</html>

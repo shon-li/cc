@@ -4,17 +4,13 @@
     <meta charset="utf-8">
     <title>cash calculator</title>
     <style media="screen">
-      table-left{background-color:red;text-align:right;}
+    body{font-family: Arial; margin-left: 10vw;}
+    table-left{background-color:red;text-align:right;}
     </style>
   </head>
   <body>
-    <p>What's the till number of yesterday?</p>
-    <input id="ty" type="text" name="till yesterday" value="">
-    <br>
-    <p>What's the number on POS machine today?</p>
-    <input id="pt" type="text" name="pos total" value="">
-    <br>
-    <p>Please fill in the count numbers below.</p>
+    <h2>Step 1</h2>
+    <p>Calculate the cash we have in the till today.</p>
     <table>
       <tr>
         <td style="text-align:right;">10 CENT</td>
@@ -62,6 +58,15 @@
       </tr>
     </table>
 
+    <h2>Step 2</h2>
+    <p>Find the till number yesterday.</p>
+    <input id="ty" type="text" name="till yesterday" value="">
+
+    <h2>Step 3</h2>
+    <p>Find the pos number on the machine.</p>
+    <input id="pt" type="text" name="pos total" value="">
+
+    <h2>Results</h2>
     <table style="text-align:center;">
       <tr>
         <th>TOTAL</th>
@@ -76,22 +81,28 @@
         <td id="till">-</td>
       </tr>
     </table>
+
+    <h2>Calculations</h2>
+    <p>CASH = till today - till yesterday.<br>
+    POS is the number from our machine.<br>
+    TILL is the money we have in our till today.<br>
+    TOTAL = pos + cash. </p>
   </body>
   <script type="text/javascript">
     function calculate(){
-      ty = document.getElementById("ty").value * 100;
-      pos = document.getElementById("pt").value * 100;
-      a = document.getElementById("a").value * 10;
-      b = document.getElementById("b").value * 20;
-      c = document.getElementById("c").value * 50;
-      d = document.getElementById("d").value * 100;
-      e = document.getElementById("e").value * 200;
-      f = document.getElementById("f").value * 500;
-      g = document.getElementById("g").value * 1000;
-      h = document.getElementById("h").value * 2000;
-      i = document.getElementById("i").value * 5000;
-      j = document.getElementById("j").value * 10000;
-      k = document.getElementById("k").value * 100;
+      var a = document.getElementById("a").value * 10;
+      var b = document.getElementById("b").value * 20;
+      var c = document.getElementById("c").value * 50;
+      var d = document.getElementById("d").value * 100;
+      var e = document.getElementById("e").value * 200;
+      var f = document.getElementById("f").value * 500;
+      var g = document.getElementById("g").value * 1000;
+      var h = document.getElementById("h").value * 2000;
+      var i = document.getElementById("i").value * 5000;
+      var j = document.getElementById("j").value * 10000;
+      var k = document.getElementById("k").value * 100;
+      var ty = document.getElementById("ty").value * 100;
+      var pos = document.getElementById("pt").value * 100;
       var till = a+b+c+d+e+f+g+h+i+j+k;
       var cash = (till - ty);
       var total = (cash + pos);
@@ -101,6 +112,6 @@
       document.getElementById("cash").innerHTML = cash/100;
       document.getElementById("total").innerHTML = total/100;
     }
-    var auto = setInterval(calculate, 500)
+    var auto = setInterval(calculate, 1000)
   </script>
 </html>

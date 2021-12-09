@@ -5,13 +5,14 @@
     <title>cash calculator</title>
     <style media="screen">
     body{font-family: Arial; margin-left: 20vw;}
-    table-left{background-color:red;text-align:right;}
+    table{width:30%;}
+    th{text-align: left;}
     </style>
   </head>
   <body>
     <h2>Step 1</h2>
     <p>Calculate the cash we have in the till today.</p>
-    <table>
+    <table class="cash">
       <tr>
         <td style="text-align:right;">10 CENT</td>
         <td><input id="a" type="text" name="10 CENT" value=""></td>
@@ -67,7 +68,7 @@
     <input id="pt" type="text" name="pos total" value="">
 
     <h2>Results</h2>
-    <table style="text-align:center;">
+    <table>
       <tr>
         <th>TOTAL</th>
         <th>POS</th>

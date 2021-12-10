@@ -4,11 +4,14 @@
     <meta charset="utf-8">
     <title>cash calculation</title>
     <style media="screen">
-    body{font-family: Arial; margin-left: 20vw;}
+    body{font-family: Arial;margin:auto;padding-left:5%;}
     th{text-align: left;}
+	.float-item{width:50%; float: left;}
     </style>
   </head>
   <body>
+  <div class="float">
+  <div class="float-item">
     <h2>Step 1</h2>
     <p>Calculate the cash we have in the till today.</p>
     <table class="cash">
@@ -66,8 +69,10 @@
     <h2>Step 3</h2>
     <p>Find the pos number on the machine.</p>
     <input id="pt" type="number" name="pos total" value="">
+	</div>
 
-    <h2>Results</h2>
+    <div class="float-item">
+	<h2>Results</h2>
     <table>
       <tr>
         <th>TOTAL</th>
@@ -88,6 +93,8 @@
     POS is the number from our machine.<br>
     TILL is the money we have in our till today.<br>
     TOTAL = pos + cash. </p>
+	</div>
+	</div>
   </body>
   <script type="text/javascript">
     function calculate(){

@@ -4,7 +4,27 @@
     <meta charset="utf-8">
     <title>cash calculation</title>
     <style media="screen">
-    body{font-family: Arial;margin:auto;padding-left:5%;}
+	@viewport { width: device-width; }
+
+	* {
+	  margin: 0;
+	  padding: 0;
+	  box-sizing: border-box;
+	}
+
+	html {box-sizing: border-box;}
+
+	body {
+	  font-family: Arial;
+	  max-width: 800px;
+	  font-size: 15px;
+	  font-weight: 400;
+	  line-height: 1.8;
+	  letter-spacing: .02em;
+	  margin: 1vh auto 0 auto;
+	  padding-left: 2vw;
+	}
+	
     th{text-align: left;}
 	.float-item{width:50%; float: left;}
     </style>
@@ -16,47 +36,47 @@
     <p>Calculate the cash we have in the till today.</p>
     <table class="cash">
       <tr>
-        <td style="text-align:right;">10c</td>
+        <td style="text-align:right; padding-right:2px">10c</td>
         <td><input id="a" type="number" name="10 CENT" value=""></td>
       </tr>
       <tr>
-        <td style="text-align:right;">20c</td>
+        <td style="text-align:right; padding-right:2px">20c</td>
         <td><input id="b" type="number" name="20 CENT" value=""></td>
       </tr>
       <tr>
-        <td style="text-align:right;">50c</td>
+        <td style="text-align:right; padding-right:2px">50c</td>
         <td><input id="c" type="number" name="50 CENT" value=""></td>
       </tr>
       <tr>
-        <td style="text-align:right;">$1</td>
+        <td style="text-align:right; padding-right:2px">$1</td>
         <td><input  id="d" type="number" name="1 DOLLAR" value=""></td>
       </tr>
       <tr>
-        <td style="text-align:right;">$2</td>
+        <td style="text-align:right; padding-right:2px">$2</td>
         <td><input  id="e" type="number" name="2 DOLLAR" value=""></td>
       </tr>
       <tr>
-        <td style="text-align:right;">$5</td>
+        <td style="text-align:right; padding-right:2px">$5</td>
         <td><input  id="f" type="number" name="5 DOLLAR" value=""></td>
       </tr>
       <tr>
-        <td style="text-align:right;">$10</td>
+        <td style="text-align:right; padding-right:2px">$10</td>
         <td><input  id="g" type="number" name="10 DOLLAR" value=""></td>
       </tr>
       <tr>
-        <td style="text-align:right;">$20</td>
+        <td style="text-align:right; padding-right:2px">$20</td>
         <td><input  id="h" type="number" name="20 DOLLAR" value=""></td>
       </tr>
       <tr>
-        <td style="text-align:right;">$50</td>
+        <td style="text-align:right; padding-right:2px">$50</td>
         <td><input id="i" type="number" name="50 DOLLAR" value=""></td>
       </tr>
       <tr>
-        <td style="text-align:right;">$100</td>
+        <td style="text-align:right; padding-right:2px">$100</td>
         <td><input id="j" type="number" name="100 DOLLAR" value=""></td>
       </tr>
       <tr>
-        <td style="text-align:right;">EXTRA</td>
+        <td style="text-align:right; padding-right:2px">EXTRA</td>
         <td><input id="k" type="number" name="EXTRA" value=""></td>
       </tr>
     </table>

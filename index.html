@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <title>cash calculation</title>
     <style media="screen">
-      @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400&display=swap');
+      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap');
       @viewport { width: device-width; }
       * {
         margin: 0;
@@ -13,19 +13,19 @@
       }
       html {box-sizing: border-box;}
       body {
-        font-family: 'Noto Sans', sans-serif;
+        font-family: 'Inter', sans-serif;
         max-width: 800px;
         font-size: 15px;
         font-weight: 400;
         line-height: 1.8;
         letter-spacing: .02em;
         margin: 1vh auto 0 auto;
-        padding-left: 40px;
+        padding-left: 30px;
       }
-      h2{margin-top: 1.2vh;margin-bottom: -6px;}
+      h2{margin-top: 1vh;margin-bottom: -6px; font-weight: 900;}
       .result th{text-align: left; padding-right: 20px;}
       .result td{margin-right: 20px;}
-      .float-item{width:46%; float: left;}
+      .float-item{width:50%; float: left;}
       input{height:28px; width:110px;}
     </style>
   </head>
@@ -33,7 +33,7 @@
   <div class="float">
     <div class="float-item">
       <h2>Step 1</h2>
-      <p>Calculate the cash we have in the till today.</p>
+      <p>Calculate the cash we have in the <strong>till today.</strong></p>
       <table class="cash">
         <tr>
           <td><input id="a" type="number" name="10 CENT" min="0"></td>
@@ -82,12 +82,12 @@
       </table>
 
       <h2>Step 2</h2>
-      <p>Find the till number yesterday.</p>
+      <p>Find the number of <strong>till yesterday</strong> on the notebook.</p>
       <input id="ty" type="number" name="till yesterday" min="0">
-      <p>Has the till money been taken out? How much?</p>
+      <p>Has the till money been <strong>taken</strong> today? How much?</p>
       <input id="tt" type="number" name="till taken" min="0">
       <h2>Step 3</h2>
-      <p>Find the pos number on the machine.</p>
+      <p>Find the <strong>POS</strong> number on the machine.</p>
       <input id="pt" type="number" name="pos total" min="0">
     </div>
 
@@ -109,10 +109,10 @@
       </table>
       <br>
       <h2>Calculations</h2>
-      <p>TOTAL = pos + cash.<br>
-        POS is the number from our machine.<br>
-        CASH = till today - till yesterday.<br>
-        TILL is the money we have in our till today.</p>
+      <p><strong>TOTAL</strong> = POS + CASH.<br>
+        <strong>POS</strong> is the number from our machine.<br>
+        <strong>CASH</strong> = till today − (till yesterday − money taken).<br>
+        <strong>TILL</strong> is the money we have in our till today.</p>
       </div>
     </div>
   </body>

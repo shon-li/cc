@@ -1,120 +1,118 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
     <meta charset="utf-8">
     <title>cash calculation</title>
     <style media="screen">
-	@viewport { width: device-width; }
-
-	* {
-	  margin: 0;
-	  padding: 0;
-	  box-sizing: border-box;
-	}
-
-	html {box-sizing: border-box;}
-
-	body {
-	  font-family: Arial;
-	  max-width: 800px;
-	  font-size: 15px;
-	  font-weight: 400;
-	  line-height: 1.8;
-	  letter-spacing: .02em;
-	  margin: 1vh auto 0 auto;
-	  padding-left: 2vw;
-	}
-	
-    th{text-align: left;}
-	.float-item{width:50%; float: left;}
+      @viewport { width: device-width; }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html {box-sizing: border-box;}
+      body {
+        font-family: 'Noto Sans SC', 'Source Han Sans SC', sans-serif;
+        max-width: 800px;
+        font-size: 15px;
+        font-weight: 400;
+        line-height: 1.8;
+        letter-spacing: .02em;
+        margin: 2vh auto 0 auto;
+        padding-left: 2vw;
+      }
+      th{text-align: left;}
+      .float-item{width:50%; float: left;}
+      input{height:28px; width:100px;}
     </style>
   </head>
   <body>
   <div class="float">
-  <div class="float-item">
-    <h2>Step 1</h2>
-    <p>Calculate the cash we have in the till today.</p>
-    <table class="cash">
-      <tr>
-        <td style="text-align:right; padding-right:2px">10c</td>
-        <td><input id="a" type="number" name="10 CENT" value=""></td>
-      </tr>
-      <tr>
-        <td style="text-align:right; padding-right:2px">20c</td>
-        <td><input id="b" type="number" name="20 CENT" value=""></td>
-      </tr>
-      <tr>
-        <td style="text-align:right; padding-right:2px">50c</td>
-        <td><input id="c" type="number" name="50 CENT" value=""></td>
-      </tr>
-      <tr>
-        <td style="text-align:right; padding-right:2px">$1</td>
-        <td><input  id="d" type="number" name="1 DOLLAR" value=""></td>
-      </tr>
-      <tr>
-        <td style="text-align:right; padding-right:2px">$2</td>
-        <td><input  id="e" type="number" name="2 DOLLAR" value=""></td>
-      </tr>
-      <tr>
-        <td style="text-align:right; padding-right:2px">$5</td>
-        <td><input  id="f" type="number" name="5 DOLLAR" value=""></td>
-      </tr>
-      <tr>
-        <td style="text-align:right; padding-right:2px">$10</td>
-        <td><input  id="g" type="number" name="10 DOLLAR" value=""></td>
-      </tr>
-      <tr>
-        <td style="text-align:right; padding-right:2px">$20</td>
-        <td><input  id="h" type="number" name="20 DOLLAR" value=""></td>
-      </tr>
-      <tr>
-        <td style="text-align:right; padding-right:2px">$50</td>
-        <td><input id="i" type="number" name="50 DOLLAR" value=""></td>
-      </tr>
-      <tr>
-        <td style="text-align:right; padding-right:2px">$100</td>
-        <td><input id="j" type="number" name="100 DOLLAR" value=""></td>
-      </tr>
-      <tr>
-        <td style="text-align:right; padding-right:2px">EXTRA</td>
-        <td><input id="k" type="number" name="EXTRA" value=""></td>
-      </tr>
-    </table>
+    <div class="float-item">
+      <h2>Step 1</h2>
+      <p>Calculate the cash we have in the till today.</p>
+      <table class="cash">
+        <tr>
+          <td><input id="a" type="number" name="10 CENT" min="0"></td>
+          <td style="padding-left:2px">10c</td>
+        </tr>
+        <tr>
+          <td><input id="b" type="number" name="20 CENT" min="0"></td>
+          <td style="padding-left:2px">20c</td>
+        </tr>
+        <tr>
+          <td><input id="c" type="number" name="50 CENT" min="0"></td>
+          <td style="padding-left:2px">50c</td>
+        </tr>
+        <tr>
+          <td><input id="d" type="number" name="1 DOLLAR" min="0"></td>
+          <td style="padding-left:2px">$1</td>
+        </tr>
+        <tr>
+          <td><input id="e" type="number" name="2 DOLLAR" min="0"></td>
+          <td style="padding-left:2px">$2</td>
+        </tr>
+        <tr>
+          <td><input id="f" type="number" name="5 DOLLAR" min="0"></td>
+          <td style="padding-left:2px">$5</td>
+        </tr>
+        <tr>
+          <td><input id="g" type="number" name="10 DOLLAR" min="0"></td>
+          <td style="padding-left:2px">$10</td>
+        </tr>
+        <tr>
+          <td><input id="h" type="number" name="20 DOLLAR" min="0"></td>
+          <td style="padding-left:2px">$20</td>
+        </tr>
+        <tr>
+          <td><input id="i" type="number" name="50 DOLLAR" min="0"></td>
+          <td style="padding-left:2px">$50</td>
+        </tr>
+        <tr>
+          <td><input id="j" type="number" name="100 DOLLAR" min="0"></td>
+          <td style="padding-left:2px">$100</td>
+        </tr>
+        <tr>
+          <td><input id="k" type="number" name="EXTRA" min="0"></td>
+          <td style="padding-left:2px">EXTRA</td>
+        </tr>
+      </table>
 
-    <h2>Step 2</h2>
-    <p>Find the till number yesterday.</p>
-    <input id="ty" type="number" name="till yesterday" value="">
-	<p>How much has the till money been taken out?</p>
-    <input id="tt" type="number" name="till taken" value="">
-    <h2>Step 3</h2>
-    <p>Find the pos number on the machine.</p>
-    <input id="pt" type="number" name="pos total" value="">
-	</div>
+      <h2>Step 2</h2>
+      <p>Find the till number yesterday.</p>
+      <input id="ty" type="number" name="till yesterday" min="0">
+      <p>How much has the till money been taken out?</p>
+      <input id="tt" type="number" name="till taken" min="0">
+      <h2>Step 3</h2>
+      <p>Find the pos number on the machine.</p>
+      <input id="pt" type="number" name="pos total" min="0">
+    </div>
 
     <div class="float-item">
-	<h2>Results</h2>
-    <table style="width:55%;">
-      <tr>
-        <th>TOTAL</th>
-        <th>POS</th>
-        <th>CASH</th>
-        <th>TILL</th>
-      </tr>
-      <tr>
-        <td id="total">-</td>
-        <td id="pos">-</td>
-        <td id="cash">-</td>
-        <td id="till">-</td>
-      </tr>
-    </table>
-
-    <h2>Calculations</h2>
-    <p>CASH = till today - till yesterday.<br>
-    POS is the number from our machine.<br>
-    TILL is the money we have in our till today.<br>
-    TOTAL = pos + cash. </p>
-	</div>
-	</div>
+      <h2>Results</h2>
+      <table class="result" style="width:55%;">
+        <tr>
+          <th>TOTAL</th>
+          <th>POS</th>
+          <th>CASH</th>
+          <th>TILL</th>
+        </tr>
+        <tr>
+          <td id="total">-</td>
+          <td id="pos">-</td>
+          <td id="cash">-</td>
+          <td id="till">-</td>
+        </tr>
+      </table>
+      <br>
+      <h2>Calculations</h2>
+      <p>TOTAL = pos + cash.<br>
+        POS is the number from our machine.<br>
+        CASH = till today - till yesterday.<br>
+        TILL is the money we have in our till today.</p>
+      </div>
+    </div>
   </body>
   <script type="text/javascript">
     function calculate(){
@@ -130,7 +128,7 @@
       var j = document.getElementById("j").value * 10000;
       var k = document.getElementById("k").value * 100;
       var ty = document.getElementById("ty").value * 100;
-	  var tt = document.getElementById("tt").value * 100;
+      var tt = document.getElementById("tt").value * 100;
       var pos = document.getElementById("pt").value * 100;
       var till = a+b+c+d+e+f+g+h+i+j+k;
       var cash = till - ty + tt;

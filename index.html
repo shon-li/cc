@@ -89,7 +89,6 @@
           <td style="padding-left:2px">EXTRA</td>
         </tr>
       </table>
-
       <h2>Step 2</h2>
       <p>Find the number of <strong>till yesterday</strong> on the notebook.</p>
       <input id="ty" type="number" name="till yesterday" min="0">
@@ -99,7 +98,6 @@
       <p>Find the number on the <strong>POS</strong> machine.</p>
       <input id="pt" type="number" name="pos total" min="0">
     </div>
-
     <div class="float-item">
       <h2>Results</h2>
       <table class="result">
@@ -151,5 +149,17 @@
       document.getElementById("total").innerHTML = total/100;
     }
     var auto = setInterval(calculate, 1000)
+    var items = [a,b,c,d,e,f,g,h,i,j,k,ty,tt,pt];
+    var ii = 0;
+    var fi = document.activeElement.id;
+    document.addEventListener('keyup', switchFocus(key));
+    function switchFocus(key){
+      if (key == "Enter" || key == "NumpadEnter"){
+        while(fi != items[ii]){ii = ii ++;}
+        ii = ii ++;
+        if (ii > 13){i = 0;}
+        document.getElementById(items[ii]).focus();
+        }
+      }
   </script>
 </html>

@@ -149,17 +149,14 @@
       document.getElementById("total").innerHTML = total/100;
     }
     var auto = setInterval(calculate, 1000)
-    var items = [a,b,c,d,e,f,g,h,i,j,k,ty,tt,pt];
+    var items = ['a','b','c','d','e','f','g','h','i','j','k','ty','tt','pt'];
     var ii = 0;
-    var fi = document.activeElement.id;
-    document.addEventListener('keyup', switchFocus(key));
-    function switchFocus(key){
-      if (key == "Enter" || key == "NumpadEnter"){
-        while(fi != items[ii]){ii = ii ++;}
-        ii = ii ++;
-        if (ii > 13){i = 0;}
+    document.addEventListener('keyup', (event) => {
+      if (event.key == "Enter"){
         document.getElementById(items[ii]).focus();
-        }
+        ii ++;
+        if (ii > 13){ii =0;}
       }
+    }, false);
   </script>
 </html>

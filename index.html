@@ -124,16 +124,16 @@
   <script type="text/javascript">
     var items = ['a','b','c','d','e','f','g','h','i','j','k','ty','tt','pt'];
     var ii = 0;
-    var reverseSwitch = false;
     document.addEventListener('keydown', (event) => {
       if (event.key == "Enter"){
+        if (ii > 13){ii = 0};
         document.getElementById(items[ii]).focus();
-        if (ii == 13){reverseSwitch = true;} else if (ii == 0 && reverseSwitch == true){reverseSwitch = false;};
-        if (reverseSwitch == false){ii++;};
-        if (reverseSwitch == true){ii--;};
+        ii ++;
       };
     }, false);
-    document.addEventListener('keyup', (event) => {calculate();}, false);
+    document.addEventListener('keyup', (event) => {
+      calculate();
+    }, false);
     function calculate(){
       var a = document.getElementById("a").value * 10;
       var b = document.getElementById("b").value * 20;

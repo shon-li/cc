@@ -124,19 +124,22 @@
   <script type="text/javascript">
     let items = ['a','b','c','d','e','f','g','h','i','j','k','ty','tt','pt'];
     var ii = 0;
+    var si = 1;
     document.addEventListener('keydown', (event) => {
+      if (event.key == "Shift"){si = -1;};
       if (event.key == "Enter"){swithchFocus();};
     }, false);
     document.addEventListener('keyup', (event) => {
+      if (event.key == "Shift"){si = 1;};
       calculate();
     }, false);
     function swithchFocus(){
       if(items.includes(document.activeElement.id)){
-        ii = items.indexOf(document.activeElement.id) + 1;
+        ii = items.indexOf(document.activeElement.id) + si;
       } else {
-        if (ii > 0){ii += 1;};
+        if (ii > 0){ii += si;};
       }
-      if (ii > 13){ii = 0};
+      if (ii > 13){ii = 0}else if(ii < 0){ii = 13};
       document.getElementById(items[ii]).focus();
     }
     function calculate(){

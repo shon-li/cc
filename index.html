@@ -130,8 +130,8 @@
       if (event.key == "Enter"){swithchFocus();};
     }, false);
     document.addEventListener('keyup', (event) => {
-      calculate();
       if (event.key == "Shift"){si = 1;};
+      calculate();
     }, false);
     function swithchFocus(){
       if(items.includes(document.activeElement.id)){

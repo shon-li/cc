@@ -132,7 +132,7 @@
     }, false);
     document.addEventListener('keyup', (event) => {
       calculate();
-      si = 1;
+      if (event.key == "Shift" || event.keyCode == 38){si = 1;};
     }, false);
     function swithchFocus(){
       if (items.includes(document.activeElement.id)){

@@ -44,58 +44,58 @@
       <p>Calculate the cash we have in the <strong>till today.</strong></p>
       <table class="cash">
         <tr>
-          <td><input id="a" type="number" name="10 CENT" min="0"></td>
+          <td><input id="a" type="tel" name="10 CENT" min="0"></td>
           <td>10c</td>
         </tr>
         <tr>
-          <td><input id="b" type="number" name="20 CENT" min="0"></td>
+          <td><input id="b" type="tel" name="20 CENT" min="0"></td>
           <td>20c</td>
         </tr>
         <tr>
-          <td><input id="c" type="number" name="50 CENT" min="0"></td>
+          <td><input id="c" type="tel" name="50 CENT" min="0"></td>
           <td>50c</td>
         </tr>
         <tr>
-          <td><input id="d" type="number" name="1 DOLLAR" min="0"></td>
+          <td><input id="d" type="tel" name="1 DOLLAR" min="0"></td>
           <td>$1</td>
         </tr>
         <tr>
-          <td><input id="e" type="number" name="2 DOLLAR" min="0"></td>
+          <td><input id="e" type="tel" name="2 DOLLAR" min="0"></td>
           <td>$2</td>
         </tr>
         <tr>
-          <td><input id="f" type="number" name="5 DOLLAR" min="0"></td>
+          <td><input id="f" type="tel" name="5 DOLLAR" min="0"></td>
           <td>$5</td>
         </tr>
         <tr>
-          <td><input id="g" type="number" name="10 DOLLAR" min="0"></td>
+          <td><input id="g" type="tel" name="10 DOLLAR" min="0"></td>
           <td>$10</td>
         </tr>
         <tr>
-          <td><input id="h" type="number" name="20 DOLLAR" min="0"></td>
+          <td><input id="h" type="tel" name="20 DOLLAR" min="0"></td>
           <td>$20</td>
         </tr>
         <tr>
-          <td><input id="i" type="number" name="50 DOLLAR" min="0"></td>
+          <td><input id="i" type="tel" name="50 DOLLAR" min="0"></td>
           <td>$50</td>
         </tr>
         <tr>
-          <td><input id="j" type="number" name="100 DOLLAR" min="0"></td>
+          <td><input id="j" type="tel" name="100 DOLLAR" min="0"></td>
           <td>$100</td>
         </tr>
         <tr>
-          <td><input id="k" type="number" name="EXTRA" min="0"></td>
+          <td><input id="k" type="tel" name="EXTRA" min="0"></td>
           <td>EXTRA</td>
         </tr>
       </table>
       <h2>Step 2</h2>
       <p>Find the number of <strong>till yesterday</strong> on the notebook.</p>
-      <input id="ty" type="number" name="till yesterday" min="0">
+      <input id="ty" type="tel" name="till yesterday" min="0">
       <p>Has the till money been <strong>taken</strong> today? How much?</p>
-      <input id="tt" type="number" name="till taken" min="0">
+      <input id="tt" type="tel" name="till taken" min="0">
       <h2>Step 3</h2>
       <p>Find the number on the <strong>POS</strong> machine.</p>
-      <input id="pt" type="number" name="pos total" min="0">
+      <input id="pt" type="tel" name="pos total" min="0">
     </div>
     <div class="float-item">
       <h2>Results</h2>
@@ -126,15 +126,15 @@
     var ii = 0;
     var si = 1;
     document.addEventListener('keydown', (event) => {
-      if (event.key == "Shift"){si = -1;};
+      if (event.key == "Shift"){si = -1;}
       if (event.key == "Enter"){swithchFocus();};
     }, false);
     document.addEventListener('keyup', (event) => {
-      if (event.key == "Shift"){si = 1;};
       calculate();
+      if (event.key == "Shift"){si = 1;};
     }, false);
     function swithchFocus(){
-      if(items.includes(document.activeElement.id)){
+      if (items.includes(document.activeElement.id)){
         ii = items.indexOf(document.activeElement.id) + si;
       } else {
         if (ii > 0){ii += si;};

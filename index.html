@@ -94,8 +94,9 @@
       <p>Has the till money been <strong>taken</strong> today? How much?</p>
       <input id="tt" type="tel" name="till taken" min="0">
       <h2>Step 3</h2>
-      <p>Find the number on the <strong>POS</strong> machine.</p>
-      <input id="pt" type="tel" name="pos total" min="0">
+      <p>Find numbers on <strong>POS</strong> machines.</p>
+      <input id="pt1" type="tel" name="pos total" min="0">
+      <input id="pt2" type="tel" name="pos total" min="0">
     </div>
     <div class="float-item">
       <h2>Results</h2>
@@ -115,16 +116,17 @@
       </table>
       <h2>Calculations</h2>
       <p><strong>TOTAL</strong> = POS + CASH.<br>
-        <strong>POS</strong> is the number from our machine.<br>
+        <strong>POS</strong> is the money from our pos machines.<br>
         <strong>CASH</strong> = till today − (till yesterday − money taken).<br>
         <strong>TILL</strong> is the money we have in our till today.</p>
       </div>
     </div>
   </body>
   <script type="text/javascript">
-    let items = ['a','b','c','d','e','f','g','h','i','j','k','ty','tt','pt'];
+    let items = ['a','b','c','d','e','f','g','h','i','j','k','ty','tt','pt1','pt2'];
     var ii = 0;
     var si = 1;
+    var lsti = items.length - 1;
     document.addEventListener('keydown', (event) => {
       if (event.key == "Enter" || event.keyCode == 40){swithchFocus();};
       if (event.key == "Shift"){si = -1;}
@@ -140,7 +142,7 @@
       } else {
         if (ii > 0){ii += si;};
       }
-      if (ii > 13){ii = 0}else if(ii < 0){ii = 13};
+      if (ii > lsti){ii = 0}else if(ii < 0){ii = lsti};
       document.getElementById(items[ii]).select();
     }
     function calculate(){
@@ -157,7 +159,9 @@
       var k = document.getElementById("k").value * 1000000;
       var ty = document.getElementById("ty").value * 1000000;
       var tt = document.getElementById("tt").value * 1000000;
-      var pos = document.getElementById("pt").value * 1000000;
+      var pos1 = document.getElementById("pt1").value * 1000000;
+      var pos2 = document.getElementById("pt2").value * 1000000;
+      var pos = pos1 + pos2;
       var till = a+b+c+d+e+f+g+h+i+j+k;
       var cash = till - ty + tt;
       var total = cash + pos;

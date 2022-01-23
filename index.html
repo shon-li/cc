@@ -144,27 +144,27 @@
       document.getElementById(items[ii]).select();
     }
     function calculate(){
-      var a = document.getElementById("a").value * 1000;
-      var b = document.getElementById("b").value * 2000;
-      var c = document.getElementById("c").value * 5000;
-      var d = document.getElementById("d").value * 10000;
-      var e = document.getElementById("e").value * 20000;
-      var f = document.getElementById("f").value * 50000;
-      var g = document.getElementById("g").value * 100000;
-      var h = document.getElementById("h").value * 200000;
-      var i = document.getElementById("i").value * 500000;
-      var j = document.getElementById("j").value * 1000000;
-      var k = document.getElementById("k").value * 10000;
-      var ty = document.getElementById("ty").value * 10000;
-      var tt = document.getElementById("tt").value * 10000;
-      var pos = document.getElementById("pt").value * 10000;
+      var a = document.getElementById("a").value * 100000;
+      var b = document.getElementById("b").value * 200000;
+      var c = document.getElementById("c").value * 500000;
+      var d = document.getElementById("d").value * 1000000;
+      var e = document.getElementById("e").value * 2000000;
+      var f = document.getElementById("f").value * 5000000;
+      var g = document.getElementById("g").value * 10000000;
+      var h = document.getElementById("h").value * 20000000;
+      var i = document.getElementById("i").value * 50000000;
+      var j = document.getElementById("j").value * 100000000;
+      var k = document.getElementById("k").value * 1000000;
+      var ty = document.getElementById("ty").value * 1000000;
+      var tt = document.getElementById("tt").value * 1000000;
+      var pos = document.getElementById("pt").value * 1000000;
       var till = a+b+c+d+e+f+g+h+i+j+k;
       var cash = till - ty + tt;
       var total = cash + pos;
       if (cash < 0) {total = pos};
-      document.getElementById("pos").innerHTML = pos/10000;
-      document.getElementById("till").innerHTML = till/10000;
-      document.getElementById("cash").innerHTML = cash/10000;
-      document.getElementById("total").innerHTML = total/10000;}
+      document.getElementById("pos").innerHTML = pos/1000000;
+      document.getElementById("till").innerHTML = till/1000000;
+      document.getElementById("cash").innerHTML = cash/1000000;
+      document.getElementById("total").innerHTML = total/1000000;}
   </script>
 </html>

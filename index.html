@@ -93,7 +93,7 @@
       <p>Find the number of <strong>till yesterday</strong> from our records.</p>
       <input id="ty" type="tel" name="till yesterday" min="0">
       <p>Has the cash in till been <strong>taken or added</strong> today?<br>Enter <u>negative</u> number if it was taken out.</p>
-      <input id="tt" type="tel" name="till taken" min="0">
+      <input id="tc" type="tel" name="till taken" min="0">
       <h2>Step 3</h2>
       <p>Find numbers on <strong>POS</strong> machines.</p>
       <input id="pt1" type="tel" name="pos total" min="0">
@@ -128,48 +128,46 @@
     </div>
   </body>
   <script type="text/javascript">
-    let items = ['a','b','c','d','e','f','g','h','i','j','k','ty','tt','pt1','pt2'];
+    var items = ['a','b','c','d','e','f','g','h','i','j','k','ty','tc','pt1','pt2'];
     var ii = 0;
     var si = 1;
     var lsti = items.length - 1;
     document.addEventListener('keydown', (event) => {
-      if (event.key == "Enter" || event.keyCode == 40){swithchFocus();};
-      if (event.key == "Shift"){si = -1;}
-      if (event.keyCode == 38){si = -1; swithchFocus();};
+      if (event.key == "Shift"){si = -1}
+      if (event.key == "Enter" || event.keyCode == 40){swithchFocus()};
+      if (event.keyCode == 38){si = -1; swithchFocus()};
     }, false);
     document.addEventListener('keyup', (event) => {
       calculate();
-      if (event.key == "Shift" || event.keyCode == 38){si = 1;};
+      if (event.key == "Shift" || event.keyCode == 38){si = 1};
     }, false);
     function swithchFocus(){
       if (items.includes(document.activeElement.id)){
         ii = items.indexOf(document.activeElement.id) + si;
-      } else {
-        if (ii > 0){ii += si;};
-      }
+      } else if (ii > 0){ii += si}
       if (ii > lsti){ii = 0}else if(ii < 0){ii = lsti};
       document.getElementById(items[ii]).select();
     }
     function calculate(){
-      var a = document.getElementById("a").value * 100000;
-      var b = document.getElementById("b").value * 200000;
-      var c = document.getElementById("c").value * 500000;
-      var d = document.getElementById("d").value * 1000000;
-      var e = document.getElementById("e").value * 2000000;
-      var f = document.getElementById("f").value * 5000000;
-      var g = document.getElementById("g").value * 10000000;
-      var h = document.getElementById("h").value * 20000000;
-      var i = document.getElementById("i").value * 50000000;
-      var j = document.getElementById("j").value * 100000000;
-      var k = document.getElementById("k").value * 1000000;
-      var ty = document.getElementById("ty").value * 1000000;
-      var tt = document.getElementById("tt").value * 1000000;
-      var pos1 = document.getElementById("pt1").value * 1000000;
-      var pos2 = document.getElementById("pt2").value * 1000000;
-      var till = a+b+c+d+e+f+g+h+i+j+k;
-      var cash = till - ty - tt;
-      var pos = pos1 + pos2;
-      var total = cash + pos;
+      let a = document.getElementById("a").value * 100000;
+      let b = document.getElementById("b").value * 200000;
+      let c = document.getElementById("c").value * 500000;
+      let d = document.getElementById("d").value * 1000000;
+      let e = document.getElementById("e").value * 2000000;
+      let f = document.getElementById("f").value * 5000000;
+      let g = document.getElementById("g").value * 10000000;
+      let h = document.getElementById("h").value * 20000000;
+      let i = document.getElementById("i").value * 50000000;
+      let j = document.getElementById("j").value * 100000000;
+      let k = document.getElementById("k").value * 1000000;
+      let ty = document.getElementById("ty").value * 1000000;
+      let tc = document.getElementById("tc").value * 1000000;
+      let pos1 = document.getElementById("pt1").value * 1000000;
+      let pos2 = document.getElementById("pt2").value * 1000000;
+      let till = a+b+c+d+e+f+g+h+i+j+k;
+      let cash = till - ty - tc;
+      let pos = pos1 + pos2;
+      let total = cash + pos;
       document.getElementById("pos").innerHTML = pos/1000000;
       document.getElementById("till").innerHTML = till/1000000;
       document.getElementById("cash").innerHTML = cash/1000000;

@@ -7,24 +7,20 @@
       @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap');
       * {margin: 0; padding: 0; box-sizing: border-box;}
       body {
+        margin: 4px auto 0 auto;
         font-family: 'Inter', sans-serif;
-        max-width: 800px;
         font-size: 15px;
         font-weight: 400;
-        margin: 2px auto 20px auto;
-        padding-left: 20px;
       }
       p{line-height: 1.4; letter-spacing: .02em;margin: 4px 0 6px 0;}
-      h2{margin: 10px 0 -2px 0; font-size: 28px; font-weight: 900; letter-spacing: .01em;}
-      .result{margin-top: 2em;}
+      h2{margin: 8px 0 -2px 0; font-size: 28px; font-weight: 900; letter-spacing: .01em;}
+      .result{margin-top: 12px;}
       .result th{line-height: 2; font-weight: 700; text-align: left; padding-right: 40px;}
       .result td{padding-right: 40px;}
-      .float-item{width: 50%; float: left;}
+      .flex{display: flex; justify-content: center; gap: 12px;}
+      .flex-item{max-width: 50%;}
       input::-webkit-outer-spin-button,
-      input::-webkit-inner-spin-button {
-        -webkit-appearance: none;
-        margin: 0;
-      }
+      input::-webkit-inner-spin-button {-webkit-appearance: none;margin: 0;}
       input[type=number] {-moz-appearance: textfield;}
       input{
         font-family: 'Inter', sans-serif;
@@ -39,8 +35,8 @@
     </style>
   </head>
   <body>
-  <div class="float">
-    <div class="float-item">
+  <div class="flex">
+    <div class="flex-item">
       <h2>Step 1</h2>
       <p>Calculate the cash we have in the <strong>till today.</strong></p>
       <table class="cash">
@@ -99,7 +95,7 @@
       <input id="pt1" type="tel" name="pos total" min="0">
       <input id="pt2" type="tel" name="pos total" min="0">
     </div>
-    <div class="float-item">
+    <div class="flex-item">
       <h2>Calculations</h2>
       <p>
         <strong>TILL</strong> is the money we have in our till today.<br>

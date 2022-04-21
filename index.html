@@ -163,7 +163,8 @@
       let till = a+b+c+d+e+f+g+h+i+j+k;
       let cash = till - ty - tc;
       let pos = pos1 + pos2;
-      let total = cash + pos;
+      let total = pos;
+      if (cash > 0){total += cash};
       document.getElementById("pos").innerHTML = pos/1000000;
       document.getElementById("till").innerHTML = till/1000000;
       document.getElementById("cash").innerHTML = cash/1000000;

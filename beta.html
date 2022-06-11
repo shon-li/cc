@@ -114,8 +114,7 @@
         </tr>
       </table>
       </div>
-    <div class="flex-item">      
-      <div class="result">
+    <div class="flex-item result">      
         <h2>Results</h2>
         <table>
           <tr>
@@ -148,10 +147,10 @@
     }
     p{margin: 0 0 4px 0; line-height: 1.4; letter-spacing: .02em;}
     h2{margin: 2px 0 2px 0; font-size: 28px; font-weight: 900; letter-spacing: .01em;}
-    .result th{line-height: 2; font-weight: 700; text-align: left; padding-right: 1.5em;}
-    .result td{padding-right: 1.5em;}
+    .result th{font-weight: 700; text-align: left; padding-right: 1.2em;}
+    .result td{padding: .5em 1.2em 0 0;}
     .flex{display: flex; justify-content: center; column-gap: 2em;}
-    .flex-item{min-width:12em; max-width:16em; }
+    .flex-item{min-width:12em; max-width:18em; }
     input{
       font-family: 'Inter', sans-serif;
       font-size: 14px;
@@ -162,6 +161,8 @@
       border-radius: 3px;
       border: 1px dotted black;
     }
+    #tillLast{margin-bottom: 1.2em;}
+    #tillChanged{margin-bottom: 1.2em;}
   </style>
   <script type="text/javascript">
     const ITEMS = ['a','b','c','d','e','f','g','h','i','j','k','pos1','pos2','tillLast','tillChanged','sysCASH','sysPOS','sysTILL','sysTOTAL'];
@@ -169,6 +170,7 @@
     let si = 1;
     let lsti = ITEMS.length - 1;
     document.addEventListener('keydown', (event) => {
+      si = 1;
       if (event.key == "Shift"){si = -1}
       if (event.key == "Enter" || event.keyCode == 40){swithchFocus()};
       if (event.keyCode == 38){si = -1; swithchFocus()};
@@ -220,10 +222,10 @@
       document.getElementById("tillDif").innerHTML = tillDif/1000000;
       document.getElementById("cashDif").innerHTML = cashDif/1000000;
       document.getElementById("totalDif").innerHTML = totalDif/1000000;
-      if (posDif = 0){document.getElementById("posDif").innerHTML = " ";}
-      if (tillDif = 0){document.getElementById("tillDif").innerHTML = " ";}
-      if (cashDif = 0){document.getElementById("cashDif").innerHTML = " ";}
-      if (totalDif = 0){document.getElementById("totalDif").innerHTML = " ";}
+      if (sysPOS == 0 || posDif == 0){document.getElementById("posDif").innerHTML = "";}
+      if (sysTILL == 0 || tillDif == 0){document.getElementById("tillDif").innerHTML = "";}
+      if (sysCASH == 0 || cashDif == 0){document.getElementById("cashDif").innerHTML = "";}
+      if (sysTOTAL == 0 || totalDif == 0){document.getElementById("totalDif").innerHTML = "";}
     }
   </script>
   </body>

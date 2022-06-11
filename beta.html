@@ -82,10 +82,10 @@
       <table>
         <tr>
           <td>
-            <input id="sysCASH" type="tel" name="ONEPOS CASH" min="0">
+            <input id="sysTILL" type="tel" name="ONEPOS TILL" min="0">
           </td>
           <td>
-            CASH
+            TILL
           </td>
         </tr>
         <tr>
@@ -98,10 +98,10 @@
         </tr>
         <tr>
           <td>
-            <input id="sysTILL" type="tel" name="ONEPOS TILL" min="0">
+            <input id="sysCASH" type="tel" name="ONEPOS CASH" min="0">
           </td>
           <td>
-            TILL
+            CASH
           </td>
         </tr>
         <tr>
@@ -140,7 +140,7 @@
   </div>
   <style>
     body {
-      margin: 4vh auto 0 auto;
+      margin: 4vh auto 0 1vw;
       font-family: 'Inter', sans-serif;
       font-size: 15px;
       font-weight: 400;
@@ -148,9 +148,10 @@
     p{margin: 0 0 4px 0; line-height: 1.4; letter-spacing: .02em;}
     h2{margin: 2px 0 2px 0; font-size: 28px; font-weight: 900; letter-spacing: .01em;}
     .result th{font-weight: 700; text-align: left; padding-right: 1.2em;}
-    .result td{padding: .5em 1.2em 0 0;}
+    .result td{padding: .4em 1.2em 0 0;}
+    #tillDif, #cashDif, #posDif, #totalDif{font-style: italic; color: gray;}
     .flex{display: flex; justify-content: center; column-gap: 2em;}
-    .flex-item{min-width:10.5em; max-width:18em; }
+    .flex-item{min-width:10.5em; max-width:18.5em;}
     input{
       font-family: 'Inter', sans-serif;
       font-size: 14px;
@@ -161,11 +162,10 @@
       border-radius: 3px;
       border: 1px dotted black;
     }
-    #tillLast{margin-bottom: 1.2em;}
-    #tillChanged{margin-bottom: 1.2em;}
+    #tillLast, #tillChanged{margin-bottom: 1.2em;}
   </style>
   <script type="text/javascript">
-    const ITEMS = ['a','b','c','d','e','f','g','h','i','j','k','pos1','pos2','tillLast','tillChanged','sysCASH','sysPOS','sysTILL','sysTOTAL'];
+    const ITEMS = ['a','b','c','d','e','f','g','h','i','j','k','pos1','pos2','tillLast','tillChanged','sysTILL','sysPOS','sysCASH','sysTOTAL'];
     let ii = 0;
     let si = 1;
     let lsti = ITEMS.length - 1;
@@ -210,10 +210,10 @@
       let cash = till - ty - tc;
       let pos = pos1 + pos2;
       let total = pos + cash;
-      let posDif = pos - sysPOS;
-      let cashDif = cash - sysCASH;
-      let tillDif = till - sysTILL;
-      let totalDif = total - sysTOTAL;
+      let posDif = sysPOS - pos;
+      let cashDif = sysCASH - cash;
+      let tillDif = sysTILL - till;
+      let totalDif = sysTOTAL - total;
       document.getElementById("pos").innerHTML = pos/1000000;
       document.getElementById("till").innerHTML = till/1000000;
       document.getElementById("cash").innerHTML = cash/1000000;

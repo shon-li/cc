@@ -86,7 +86,7 @@
         </tr>
       </table>
     </div>
-    <div class="flex-item">
+    <div class="flex-item valid">
       <h2>Validation</h2>
       <p>Find the number of <strong>TILL yesterday.</strong></p>
       <input id="tillLast" type="tel" name="TILL yesterday" min="0">
@@ -100,15 +100,15 @@
           <td>
             <input id="sysTILL" type="tel" name="ONEPOS TILL" min="0">
           </td>
-          <td>− TILL = <span id="tillDif">0.</span></td>
+          <td>− TILL = <span id="tillDif">0</span></td>
         </tr>
         <tr>
           <td><input id="sysCASH" type="tel" name="ONEPOS CASH" min="0"></td>
-          <td>− CASH = <span id="cashDif">0.</span></td>
+          <td>− CASH = <span id="cashDif">0</span></td>
         </tr>
         <tr>
           <td><input id="sysPOS" type="tel" name="ONEPOS POS" min="0"></td>
-          <td>− POS = <span id="posDif">0.</span></td>
+          <td>− POS = <span id="posDif">0</span></td>
         </tr>
       </table>
       </div>
@@ -134,11 +134,11 @@
     p{margin: 0 0 4px 0; line-height: 1.4; letter-spacing: .02em;}
     h2{margin: 15px 0 5px 0; font-size: 28px; font-weight: 900; letter-spacing: .01em;}
     .valid h2{margin-bottom: 2px;}
+    .valid td{color: gray;}
     .result h2{margin-bottom: 0px;}
     .result th{font-weight: 700; text-align: left; padding-right: 1.2em;}
     .result td{padding: .4em 1.2em 0 0;}
     #tillLast, #tillChanged{margin-bottom: 20px;}
-    #tillDif, #cashDif, #posDif, #totalDif{color: gray;}
     .flex{display: flex; justify-content: center; column-gap: 2em;}
     .flex-item{min-width:10.2em; max-width:18em;}
   </style>

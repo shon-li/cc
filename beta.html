@@ -194,9 +194,9 @@
       document.getElementById("till").innerHTML = dM(till);
       document.getElementById("cash").innerHTML = dM(cash);
       document.getElementById("total").innerHTML = dM(total);
-      if(sysTILL != 0){document.getElementById("tillDif").innerHTML = dM(tillDif);}
-      if(sysPOS != 0){document.getElementById("posDif").innerHTML = dM(posDif);}
-      if(sysCASH != 0){document.getElementById("cashDif").innerHTML = dM(cashDif);}
+      if(sysTILL != NaN){document.getElementById("tillDif").innerHTML = dM(tillDif);}
+      if(sysPOS != NaN){document.getElementById("posDif").innerHTML = dM(posDif);}
+      if(sysCASH != NaN){document.getElementById("cashDif").innerHTML = dM(cashDif);}
     }
   </script>
   </body>

@@ -6,8 +6,24 @@
     <style>
       @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap');
       * {margin: 0; padding: 0; box-sizing: border-box;}
+      body {
+      margin: 3vh auto .5vh auto;
+      font-family: 'Inter', sans-serif;
+      font-size: 15px;
+      font-weight: 400;
+      }
       input::-webkit-outer-spin-button,
       input::-webkit-inner-spin-button {-webkit-appearance: none;}
+      input{
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      text-align: center;
+      margin: 0px 2px 2px 0;
+      height: 2em;
+      width: 6.4em;
+      border-radius: 3px;
+      border: 1px dotted black;
+      }
     </style>
   </head>
   <body>
@@ -78,39 +94,21 @@
       <p>Has the till cash been <strong>taken or added</strong> today?<br>Enter <u>negative</u> number if it's been taken out.</p>
       <input id="tillChanged" type="tel" name="till taken" min="0">
       <br>
-      <p>Find the following numbers on <strong>ONEPOS.</strong></p>
+      <p>Enter numbers below to calculate <strong>difference.</strong></p>
       <table>
         <tr>
           <td>
             <input id="sysTILL" type="tel" name="ONEPOS TILL" min="0">
           </td>
-          <td>
-            TILL
-          </td>
+          <td>− TILL = <span id="tillDif">0.</span></td>
         </tr>
         <tr>
-          <td>
-            <input id="sysPOS" type="tel" name="ONEPOS POS" min="0">
-          </td>
-          <td>
-            POS
-          </td>
+          <td><input id="sysCASH" type="tel" name="ONEPOS CASH" min="0"></td>
+          <td>− CASH = <span id="cashDif">0.</span></td>
         </tr>
         <tr>
-          <td>
-            <input id="sysCASH" type="tel" name="ONEPOS CASH" min="0">
-          </td>
-          <td>
-            CASH
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <input id="sysTOTAL" type="tel" name="ONEPOS Total" min="0">
-          </td>
-          <td>
-            TOTAL
-          </td>
+          <td><input id="sysPOS" type="tel" name="ONEPOS POS" min="0"></td>
+          <td>− POS = <span id="posDif">0.</span></td>
         </tr>
       </table>
       </div>
@@ -129,43 +127,23 @@
             <td id="pos">—</td>
             <td id="total">—</td>
           </tr>
-          <tr>
-            <td id="tillDif"></td>
-            <td id="cashDif"></td>
-            <td id="posDif"></td>
-            <td id="totalDif"></td>
-          </tr>
         </table>
       </div>
   </div>
   <style>
-    body {
-      margin: 4vh auto 1vh 1vw;
-      font-family: 'Inter', sans-serif;
-      font-size: 15px;
-      font-weight: 400;
-    }
     p{margin: 0 0 4px 0; line-height: 1.4; letter-spacing: .02em;}
-    h2{margin: 2px 0 2px 0; font-size: 28px; font-weight: 900; letter-spacing: .01em;}
+    h2{margin: 15px 0 5px 0; font-size: 28px; font-weight: 900; letter-spacing: .01em;}
+    .valid h2{margin-bottom: 2px;}
+    .result h2{margin-bottom: 0px;}
     .result th{font-weight: 700; text-align: left; padding-right: 1.2em;}
     .result td{padding: .4em 1.2em 0 0;}
-    #tillDif, #cashDif, #posDif, #totalDif{font-style: italic; color: gray;}
+    #tillLast, #tillChanged{margin-bottom: 20px;}
+    #tillDif, #cashDif, #posDif, #totalDif{color: gray;}
     .flex{display: flex; justify-content: center; column-gap: 2em;}
-    .flex-item{min-width:11em; max-width:18em;}
-    input{
-      font-family: 'Inter', sans-serif;
-      font-size: 14px;
-      text-align: center;
-      margin: 0px 2px 2px 0;
-      height: 2em;
-      width: 6.4em;
-      border-radius: 3px;
-      border: 1px dotted black;
-    }
-    #tillLast, #tillChanged{margin-bottom: 1.2em;}
+    .flex-item{min-width:10.2em; max-width:18em;}
   </style>
   <script type="text/javascript">
-    const ITEMS = ['a','b','c','d','e','f','g','h','i','j','k','pos1','pos2','tillLast','tillChanged','sysTILL','sysPOS','sysCASH','sysTOTAL'];
+    const ITEMS = ['a','b','c','d','e','f','g','h','i','j','k','pos1','pos2','tillLast','tillChanged','sysTILL','sysCASH','sysPOS'];
     let ii = 0;
     let si = 1;
     let lsti = ITEMS.length - 1;
@@ -185,6 +163,7 @@
       if (ii > lsti){ii = 0}else if(ii < 0){ii = lsti};
       document.getElementById(ITEMS[ii]).select();
     }
+    function dM(x){return x /= 1000000;}
     function calculate(){
       let a = document.getElementById("a").value * 100000;
       let b = document.getElementById("b").value * 200000;
@@ -204,7 +183,6 @@
       let sysCASH = document.getElementById("sysCASH").value * 1000000;
       let sysPOS = document.getElementById("sysPOS").value * 1000000;
       let sysTILL = document.getElementById("sysTILL").value * 1000000;
-      let sysTOTAL = document.getElementById("sysTOTAL").value * 1000000;
       let till = a+b+c+d+e+f+g+h+i+j+k;
       let cash = till - ty - tc;
       let pos = pos1 + pos2;
@@ -212,19 +190,13 @@
       let posDif = sysPOS - pos;
       let cashDif = sysCASH - cash;
       let tillDif = sysTILL - till;
-      let totalDif = sysTOTAL - total;
-      document.getElementById("pos").innerHTML = pos/1000000;
-      document.getElementById("till").innerHTML = till/1000000;
-      document.getElementById("cash").innerHTML = cash/1000000;
-      document.getElementById("total").innerHTML = total/1000000;
-      document.getElementById("posDif").innerHTML = posDif/1000000;
-      document.getElementById("tillDif").innerHTML = tillDif/1000000;
-      document.getElementById("cashDif").innerHTML = cashDif/1000000;
-      document.getElementById("totalDif").innerHTML = totalDif/1000000;
-      if (sysPOS == 0 || posDif == 0){document.getElementById("posDif").innerHTML = "";}
-      if (sysTILL == 0 || tillDif == 0){document.getElementById("tillDif").innerHTML = "";}
-      if (sysCASH == 0 || cashDif == 0){document.getElementById("cashDif").innerHTML = "";}
-      if (sysTOTAL == 0 || totalDif == 0){document.getElementById("totalDif").innerHTML = "";}
+      document.getElementById("pos").innerHTML = dM(pos);
+      document.getElementById("till").innerHTML = dM(till);
+      document.getElementById("cash").innerHTML = dM(cash);
+      document.getElementById("total").innerHTML = dM(total);
+      if(sysTILL != 0){document.getElementById("tillDif").innerHTML = dM(tillDif);}
+      if(sysPOS != 0){document.getElementById("posDif").innerHTML = dM(posDif);}
+      if(sysCASH != 0){document.getElementById("cashDif").innerHTML = dM(cashDif);}
     }
   </script>
   </body>

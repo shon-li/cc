@@ -6,15 +6,30 @@
     <style>
       @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap');
       * {margin: 0; padding: 0; box-sizing: border-box;}
+      body {
+      margin: 3vh auto .5vh auto;
+      font-family: 'Inter', sans-serif;
+      font-size: 15px;
+      font-weight: 400;
+      }
       input::-webkit-outer-spin-button,
       input::-webkit-inner-spin-button {-webkit-appearance: none;}
+      input{
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      text-align: center;
+      margin: 0px 2px 2px 0;
+      height: 2em;
+      width: 6.4em;
+      border-radius: 3px;
+      border: 1px dotted black;
+      }
     </style>
   </head>
   <body>
   <div class="flex">
     <div class="flex-item">
-      <h2>Step 1</h2>
-      <p>Calculate the cash we have in the <strong>till today.</strong></p>
+      <h2>TILL</h2>
       <table class="cash">
         <tr>
           <td><input id="a" type="tel" name="10 CENT" min="0"></td>
@@ -61,70 +76,81 @@
           <td>EXTRA</td>
         </tr>
       </table>
-      <h2>Step 2</h2>
-      <p>Find the number of <strong>till yesterday</strong> from our records.</p>
-      <input id="ty" type="tel" name="till yesterday" min="0">
-      <p>Has the till cash been <strong>taken or added</strong> today?<br>Enter <u>negative</u> number if it's been taken out.</p>
-      <input id="tc" type="tel" name="till taken" min="0">
-      <h2>Step 3</h2>
-      <p>Find numbers on <strong>POS</strong> machines.</p>
-      <input id="pt1" type="tel" name="pos total" min="0">
-      <input id="pt2" type="tel" name="pos total" min="0">
+      <h2>POS</h2>
+      <table>
+        <tr>
+          <td><input id="pos1" type="tel" name="pos total" min="0"></td>
+        </tr>
+        <tr>
+          <td><input id="pos2" type="tel" name="pos total" min="0"></td>
+        </tr>
+      </table>
     </div>
-    <div class="flex-item">
-      <h2>Calculations</h2>
+    <div class="flex-item valid">
+      <h2>Validation</h2>
+      <p>Find the number of <strong>TILL yesterday.</strong></p>
+      <input id="tillLast" type="tel" name="TILL yesterday" min="0">
+      <br>
+      <p>Has the till cash been <strong>taken or added</strong> today?<br>Enter <u>negative</u> number if it's been taken out.</p>
+      <input id="tillChanged" type="tel" name="till taken" min="0">
+      <br>
+      <p>Enter numbers below to calculate <strong>difference.</strong></p>
+      <table>
+        <tr>
+          <td>
+            <input id="sysTILL" type="tel" name="ONEPOS TILL" min="0">
+          </td>
+          <td>− TILL = <span id="tillDif">0</span></td>
+        </tr>
+        <tr>
+          <td><input id="sysCASH" type="tel" name="ONEPOS CASH" min="0"></td>
+          <td>− CASH = <span id="cashDif">0</span></td>
+        </tr>
+        <tr>
+          <td><input id="sysPOS" type="tel" name="ONEPOS POS" min="0"></td>
+          <td>− POS = <span id="posDif">0</span></td>
+        </tr>
+      </table>
+      </div>
+    <div class="flex-item result">
+      <h2>Definition</h2>
       <p>
-        <strong>TILL</strong> is the money we have in our till today.<br>
-        <strong>CASH</strong> = till today − till yesterday − till changed.<br>
-        <strong>POS</strong> is the money from our pos machines.<br>
+        <strong>TILL</strong> is the money in our till.<br>
+        <strong>CASH</strong> = till today − till yesterday − changed amount.<br>
+        <strong>POS</strong> is the money from our EFTPOS.<br>
         <strong>TOTAL</strong> = POS + CASH.
       </p>
-        <div class="result">
-          <h2>Results</h2>
-          <table>
-            <tr>
-              <th>TILL</th>
-              <th>CASH</th>
-              <th>POS</th>
-              <th>TOTAL</th>
-            </tr>
-            <tr>
-              <td id="till">—</td>
-              <td id="cash">—</td>
-              <td id="pos">—</td>
-              <td id="total">—</td>
-            </tr>
-          </table>
-        </div>
-    </div>
+        <h2>Results</h2>
+        <table>
+          <tr>
+            <th>TILL</th>
+            <th>CASH</th>
+            <th>POS</th>
+            <th>TOTAL</th>
+          </tr>
+          <tr>
+            <td id="till">—</td>
+            <td id="cash">—</td>
+            <td id="pos">—</td>
+            <td id="total">—</td>
+          </tr>
+        </table>
+      </div>
   </div>
   <style>
-    body {
-      margin: 0 auto 0 auto;
-      font-family: 'Inter', sans-serif;
-      font-size: 15px;
-      font-weight: 400;
-    }
-    p{line-height: 1.4; letter-spacing: .02em; margin: 4px 0 2px 0;}
-    h2{margin: 8px 0 -2px 0; font-size: 28px; font-weight: 900; letter-spacing: .01em;}
-    .result{margin-top: 2em;}
-    .result th{line-height: 2; font-weight: 700; text-align: left; padding-right: 40px;}
-    .result td{padding-right: 40px;}
+    p{margin: 0 0 4px 0; line-height: 1.4; letter-spacing: .02em;}
+    h2{margin: 12px 0 5px 0; font-size: 28px; font-weight: 900; letter-spacing: .01em;}
+    .valid h2{margin-bottom: 3px;}
+    .valid td{color: gray;}
+    .result h2{margin-bottom: 2px;}
+    .result th{font-weight: 700; text-align: left; padding-right: 1.2em;}
+    .result td{padding: .4em 1.2em 0 0;}
+    #tillLast, #tillChanged{margin-bottom: 20px;}
     .flex{display: flex; justify-content: center; column-gap: 2em;}
-    .flex-item{max-width: 50%;}
-    input{
-      font-family: 'Inter', sans-serif;
-      font-size: 14px;
-      text-align: center;
-      margin: 0px 2px 2px 0;
-      height: 2em;
-      width: 6.4em;
-      border-radius: 3px;
-      border: 1px dotted black;
-    }
+    .flex-item{min-width:10.2em; max-width:18em;}
   </style>
   <script type="text/javascript">
-    const ITEMS = ['a','b','c','d','e','f','g','h','i','j','k','ty','tc','pt1','pt2'];
+    const ITEMS = ['a','b','c','d','e','f','g','h','i','j','k','pos1','pos2','tillLast','tillChanged','sysTILL','sysCASH','sysPOS'];
     let ii = 0;
     let si = 1;
     let lsti = ITEMS.length - 1;
@@ -144,6 +170,7 @@
       if (ii > lsti){ii = 0}else if(ii < 0){ii = lsti};
       document.getElementById(ITEMS[ii]).select();
     }
+    function dM(x){return x /= 1000000;}
     function calculate(){
       let a = document.getElementById("a").value * 100000;
       let b = document.getElementById("b").value * 200000;
@@ -156,19 +183,27 @@
       let i = document.getElementById("i").value * 50000000;
       let j = document.getElementById("j").value * 100000000;
       let k = document.getElementById("k").value * 1000000;
-      let ty = document.getElementById("ty").value * 1000000;
-      let tc = document.getElementById("tc").value * 1000000;
-      let pos1 = document.getElementById("pt1").value * 1000000;
-      let pos2 = document.getElementById("pt2").value * 1000000;
+      let pos1 = document.getElementById("pos1").value * 1000000;
+      let pos2 = document.getElementById("pos2").value * 1000000;
+      let ty = document.getElementById("tillLast").value * 1000000;
+      let tc = document.getElementById("tillChanged").value * 1000000;
+      let sysCASH = document.getElementById("sysCASH").value * 1000000;
+      let sysPOS = document.getElementById("sysPOS").value * 1000000;
+      let sysTILL = document.getElementById("sysTILL").value * 1000000;
       let till = a+b+c+d+e+f+g+h+i+j+k;
       let cash = till - ty - tc;
       let pos = pos1 + pos2;
-      let total = pos;
-      if (cash > 0){total += cash};
-      document.getElementById("pos").innerHTML = pos/1000000;
-      document.getElementById("till").innerHTML = till/1000000;
-      document.getElementById("cash").innerHTML = cash/1000000;
-      document.getElementById("total").innerHTML = total/1000000;
+      let total = pos + cash;
+      let posDif = sysPOS - pos;
+      let cashDif = sysCASH - cash;
+      let tillDif = sysTILL - till;
+      document.getElementById("pos").innerHTML = dM(pos);
+      document.getElementById("till").innerHTML = dM(till);
+      document.getElementById("cash").innerHTML = dM(cash);
+      document.getElementById("total").innerHTML = dM(total);
+      if(sysTILL != NaN){document.getElementById("tillDif").innerHTML = dM(tillDif);}
+      if(sysPOS != NaN){document.getElementById("posDif").innerHTML = dM(posDif);}
+      if(sysCASH != NaN){document.getElementById("cashDif").innerHTML = dM(cashDif);}
     }
   </script>
   </body>

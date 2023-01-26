@@ -208,10 +208,15 @@
       if(sysTILL != NaN){document.getElementById("tillDif").innerHTML = dM(tillDif);}
       if(sysPOS != NaN){document.getElementById("posDif").innerHTML = dM(posDif);}
       if(sysCASH != NaN){document.getElementById("cashDif").innerHTML = dM(cashDif);}
-      if(ty == 0){
+      if(ty == 0 && tc ==0){
         document.getElementById("cash").innerHTML = '—';
         document.getElementById("total").innerHTML = '—';
       }
+      if(pos1 == 0 && pos2 ==0){
+        document.getElementById("pos").innerHTML = '—';
+        document.getElementById("total").innerHTML = '—';
+      }
+      if(till == 0){document.getElementById("till").innerHTML = '—';}
     }
   </script>
   </body>

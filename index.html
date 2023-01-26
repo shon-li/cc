@@ -87,6 +87,24 @@
       </table>
     </div>
     <div class="flex-item valid">
+      <div class="result">
+      <h2>Result</h2>
+        <table>
+          <tr>
+            <th>TILL</th>
+            <th>CASH</th>
+            <th>POS</th>
+            <th>TOTAL</th>
+          </tr>
+          <tr>
+            <td id="till">—</td>
+            <td id="cash">—</td>
+            <td id="pos">—</td>
+            <td id="total">—</td>
+          </tr>
+        </table>
+        </div>
+      </br>
       <h2>Validation</h2>
       <p>Find the number of <strong>TILL yesterday.</strong></p>
       <input id="tillLast" type="tel" name="TILL yesterday" min="0">
@@ -111,23 +129,6 @@
           <td>− TILL = <span id="tillDif">0</span></td>
         </tr>
       </table>
-      <div class="result">
-      <h2>Result</h2>
-        <table>
-          <tr>
-            <th>TILL</th>
-            <th>CASH</th>
-            <th>POS</th>
-            <th>TOTAL</th>
-          </tr>
-          <tr>
-            <td id="till">—</td>
-            <td id="cash">—</td>
-            <td id="pos">—</td>
-            <td id="total">—</td>
-          </tr>
-        </table>
-        </div>
       </div>
     </div>
   <style>
@@ -136,7 +137,7 @@
     p{margin: 0 0 4px 0; line-height: 1.4; letter-spacing: .02em;}
     h2{margin: 14px 0 5px 0; font-size: 28px; font-weight: 900; letter-spacing: .01em;}
     table{margin-left: -2px;}
-    .valid h2{margin-bottom: 3px;}
+    .valid h2{margin-bottom:3px;}
     .valid td{color: gray;}
     .result h2{margin-bottom: 2px;}
     .result table{margin-left: -1px;}

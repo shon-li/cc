@@ -121,19 +121,20 @@
         <p>Enter numbers from ONEPOS to see the <strong>difference.</strong> Add more sales in the system if you see <u>negative</u> numbers.</p>
         <table>
           <tr>
-            <td><input id="sysCASH" type="tel" name="ONEPOS CASH" min="0"></td>
-            <td>− CASH = <span id="cashDif">0</span></td>
-          </tr>
-          <tr>
-            <td><input id="sysPOS" type="tel" name="ONEPOS POS" min="0"></td>
-            <td>− POS = <span id="posDif">0</span></td>
-          </tr>
-          <tr>
             <td>
               <input id="sysTILL" type="tel" name="ONEPOS TILL" min="0">
             </td>
-            <td>− TILL = <span id="tillDif">0</span></td>
+            <td>− TILL = <span id="tillDif">?</span></td>
           </tr>
+          <tr>
+            <td><input id="sysCASH" type="tel" name="ONEPOS CASH" min="0"></td>
+            <td>− CASH = <span id="cashDif">?</span></td>
+          </tr>
+          <tr>
+            <td><input id="sysPOS" type="tel" name="ONEPOS POS" min="0"></td>
+            <td>− POS = <span id="posDif">?</span></td>
+          </tr>
+
         </table>
       </div>
     </div>
@@ -211,12 +212,17 @@
       if(ty == 0 && tc ==0){
         document.getElementById("cash").innerHTML = '—';
         document.getElementById("total").innerHTML = '—';
+        document.getElementById("cashDif").innerHTML = '?';
       }
       if(pos1 == 0 && pos2 ==0){
         document.getElementById("pos").innerHTML = '—';
         document.getElementById("total").innerHTML = '—';
+        document.getElementById("posDif").innerHTML = '?';
       }
-      if(till == 0){document.getElementById("till").innerHTML = '—';}
+      if(till == 0){
+        document.getElementById("till").innerHTML = '—';
+        document.getElementById("tillDif").innerHTML = '?';
+      }
     }
   </script>
   </body>

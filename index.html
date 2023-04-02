@@ -181,10 +181,10 @@
       document.getElementById(ITEMS[ii]).select();
     }
     
-    function dM(x){return x /= 1000000;}
+    let zz = 100000000;    
+    function dM(x){return x /= zz;}
     
     function calculate(){
-      let zz = 100000000;
       let a = document.getElementById("a").value * 0.1 * zz;
       let b = document.getElementById("b").value * 0.2 * zz;
       let c = document.getElementById("c").value * 0.5 * zz;

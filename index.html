@@ -159,201 +159,201 @@
 
       </div>
     </div>
-  </body>
 
-  <!-- styles load at the end -->
-  <style>
-    .flex{
-      display: flex;
-      justify-content: center;
-      column-gap: 4em;
-    }
-
-    .flex-item{
-      min-width: 10em;
-      max-width: 22em;
-    }
-
-    p{
-      margin: 0 0 4px 0;
-      line-height: 1.4;
-      letter-spacing: .02em;
-    }
-
-    h2{
-      margin-bottom: 5px;
-      font-size: 28px;
-      font-weight: 900;
-      letter-spacing: .01em;
-    }
-
-    table{
-      margin-left: -2px;
-    }
-
-    .valid h2{
-      margin-bottom: 3px;
-    }
-
-    .valid td{
-      color: gray;
-    }
-
-    .result h2{
-      margin-bottom: 2px;
-    }
-
-    .result table{
-      margin-left: -1px;
-    }
-
-    .result th{
-      font-weight: 700;
-      text-align: left;
-      padding-right: 1.2em;
-    }
-
-    .result td{
-      color: black;
-      padding: .4em 1.2em 0 .5px;
-    }
-
-    #tillYesterday,
-    #ChangeOfTill{
-      margin-bottom: 20px;
-    }
-
-    #ChangeOfTill,
-    #sysCash{
-      margin-top: 2px;
-    }
-  </style>
-
-  <script type="text/javascript">
-    const ITEMS = ['a','b','c','d','e','f','g','h','i','j','k','pos1','pos2','tillYesterday','ChangeOfTill','sysTILL','sysCASH','sysPOS'];
-
-    let
-    index_active = 0,
-    indexIncrement = 1,
-    indexDecrement = -1;
-
-    // When key held down:
-    document.addEventListener('keydown', (event) => {
-      if (event.key == "Shift") {
-        indexIncrement = -1;
-        indexDecrement = 1;
+    <!-- styles load at the end -->
+    <style>
+      .flex{
+        display: flex;
+        justify-content: center;
+        column-gap: 4em;
       }
 
-      // Go to the next box when Enter or NumPad Enter Key is down
-      if (event.key == "Enter" || event.keyCode == 40) {
-        SwitchBoxFocus(indexIncrement);
-      };
-
-      // Go to the previous box when ArrowUp is down
-      if (event.keyCode == 38) {
-        SwitchBoxFocus(indexDecrement);
-      };
-    }, false);
-
-    // When key released:
-    document.addEventListener('keyup', (event) => {
-      CalculateResult();
-
-      if (event.key == "Shift") {
-        indexIncrement = 1;
-        indexDecrement = -1;
-      }
-    }, false);
-
-    const INDEX_MAXIMUM = ITEMS.length - 1;
-
-    function SwitchBoxFocus(indexChange) {
-      index_active = ITEMS.indexOf(document.activeElement.id) + indexChange;
-      
-      if (index_active > INDEX_MAXIMUM) {
-        index_active = 0;
+      .flex-item{
+        min-width: 10em;
+        max-width: 22em;
       }
 
-      if (index_active < 0) {
-        index_active = INDEX_MAXIMUM;
-      };
+      p{
+        margin: 0 0 4px 0;
+        line-height: 1.4;
+        letter-spacing: .02em;
+      }
 
-      const BOX = document.getElementById(ITEMS[index_active]);
-      BOX.focus();
-      BOX.select();
-    }
-    
-    const SCALE = 10000000000000000;
+      h2{
+        margin-bottom: 5px;
+        font-size: 28px;
+        font-weight: 900;
+        letter-spacing: .01em;
+      }
 
-    function RestoreDecimalPoint(number) {
-      return number /= SCALE;
-    }
-    
-    function CalculateResult() {
+      table{
+        margin-left: -2px;
+      }
+
+      .valid h2{
+        margin-bottom: 3px;
+      }
+
+      .valid td{
+        color: gray;
+      }
+
+      .result h2{
+        margin-bottom: 2px;
+      }
+
+      .result table{
+        margin-left: -1px;
+      }
+
+      .result th{
+        font-weight: 700;
+        text-align: left;
+        padding-right: 1.2em;
+      }
+
+      .result td{
+        color: black;
+        padding: .4em 1.2em 0 .5px;
+      }
+
+      #tillYesterday,
+      #ChangeOfTill{
+        margin-bottom: 20px;
+      }
+
+      #ChangeOfTill,
+      #sysCash{
+        margin-top: 2px;
+      }
+    </style>
+
+    <script type="text/javascript">
+      const ITEMS = ['a','b','c','d','e','f','g','h','i','j','k','pos1','pos2','tillYesterday','ChangeOfTill','sysTILL','sysCASH','sysPOS'];
+
       let
-      a = document.getElementById("a").value * 0.1 * SCALE,
-      b = document.getElementById("b").value * 0.2 * SCALE,
-      c = document.getElementById("c").value * 0.5 * SCALE,
-      d = document.getElementById("d").value * SCALE,
-      e = document.getElementById("e").value * 2 * SCALE,
-      f = document.getElementById("f").value * 5 * SCALE,
-      g = document.getElementById("g").value * 10 * SCALE,
-      h = document.getElementById("h").value * 20 * SCALE,
-      i = document.getElementById("i").value * 50 * SCALE,
-      j = document.getElementById("j").value * 100 * SCALE,
-      k = document.getElementById("k").value * SCALE,
+      index_active = 0,
+      indexIncrement = 1,
+      indexDecrement = -1;
 
-      pos1 = document.getElementById("pos1").value * SCALE,
-      pos2 = document.getElementById("pos2").value * SCALE,
+      // When key held down:
+      document.addEventListener('keydown', (event) => {
+        if (event.key == "Shift") {
+          indexIncrement = -1;
+          indexDecrement = 1;
+        }
 
-      tillYesterday = document.getElementById("tillYesterday").value * SCALE,
-      changeOfTill = document.getElementById("ChangeOfTill").value * SCALE,
+        // Go to the next box when Enter or NumPad Enter Key is down
+        if (event.key == "Enter" || event.keyCode == 40) {
+          SwitchBoxFocus(indexIncrement);
+        };
 
-      sysCASH = document.getElementById("sysCASH").value * SCALE,
-      sysPOS = document.getElementById("sysPOS").value * SCALE,
-      sysTILL = document.getElementById("sysTILL").value * SCALE,
+        // Go to the previous box when ArrowUp is down
+        if (event.keyCode == 38) {
+          SwitchBoxFocus(indexDecrement);
+        };
+      }, false);
 
-      till = a+b+c+d+e+f+g+h+i+j+k,
-      cash = till - tillYesterday - changeOfTill,
-      pos = pos1 + pos2,
-      total = pos + cash,
-      posDiff = sysPOS - pos,
-      cashDiff = sysCASH - cash,
-      tillDiff = sysTILL - till;
+      // When key released:
+      document.addEventListener('keyup', (event) => {
+        CalculateResult();
 
-      document.getElementById("pos").innerHTML = RestoreDecimalPoint(pos);
-      document.getElementById("till").innerHTML = RestoreDecimalPoint(till);
-      document.getElementById("cash").innerHTML = RestoreDecimalPoint(cash);
-      document.getElementById("total").innerHTML = RestoreDecimalPoint(total);
+        if (event.key == "Shift") {
+          indexIncrement = 1;
+          indexDecrement = -1;
+        }
+      }, false);
 
-      if(sysTILL != NaN) {
-        document.getElementById("tillDiff").innerHTML = RestoreDecimalPoint(tillDiff);
+      const INDEX_MAXIMUM = ITEMS.length - 1;
+
+      function SwitchBoxFocus(indexChange) {
+        index_active = ITEMS.indexOf(document.activeElement.id) + indexChange;
+        
+        if (index_active > INDEX_MAXIMUM) {
+          index_active = 0;
+        }
+
+        if (index_active < 0) {
+          index_active = INDEX_MAXIMUM;
+        };
+
+        const BOX = document.getElementById(ITEMS[index_active]);
+        BOX.focus();
+        BOX.select();
       }
+      
+      const SCALE = 10000000000000000;
 
-      if(sysPOS != NaN) {
-        document.getElementById("posDiff").innerHTML = RestoreDecimalPoint(posDiff);
+      function RestoreDecimalPoint(number) {
+        return number /= SCALE;
       }
+      
+      function CalculateResult() {
+        let
+        a = document.getElementById("a").value * 0.1 * SCALE,
+        b = document.getElementById("b").value * 0.2 * SCALE,
+        c = document.getElementById("c").value * 0.5 * SCALE,
+        d = document.getElementById("d").value * SCALE,
+        e = document.getElementById("e").value * 2 * SCALE,
+        f = document.getElementById("f").value * 5 * SCALE,
+        g = document.getElementById("g").value * 10 * SCALE,
+        h = document.getElementById("h").value * 20 * SCALE,
+        i = document.getElementById("i").value * 50 * SCALE,
+        j = document.getElementById("j").value * 100 * SCALE,
+        k = document.getElementById("k").value * SCALE,
 
-      if(sysCASH != NaN) {
-        document.getElementById("cashDiff").innerHTML = RestoreDecimalPoint(cashDiff);
-      }
+        pos1 = document.getElementById("pos1").value * SCALE,
+        pos2 = document.getElementById("pos2").value * SCALE,
 
-      if(tillYesterday == 0 && changeOfTill == 0) {
-        document.getElementById("cash").innerHTML = '—';
-        document.getElementById("total").innerHTML = '—';
-        document.getElementById("cashDiff").innerHTML = '?';
-      }
+        tillYesterday = document.getElementById("tillYesterday").value * SCALE,
+        changeOfTill = document.getElementById("ChangeOfTill").value * SCALE,
 
-      if(pos1 == 0 && pos2 == 0) {
-        document.getElementById("pos").innerHTML = '—';
-        document.getElementById("total").innerHTML = '—';
-        document.getElementById("posDiff").innerHTML = '?';
-      }
+        sysCASH = document.getElementById("sysCASH").value * SCALE,
+        sysPOS = document.getElementById("sysPOS").value * SCALE,
+        sysTILL = document.getElementById("sysTILL").value * SCALE,
 
-      if(till == 0) {
-        document.getElementById("till").innerHTML = '—';
-        document.getElementById("tillDiff").innerHTML = '?';
+        till = a+b+c+d+e+f+g+h+i+j+k,
+        cash = till - tillYesterday - changeOfTill,
+        pos = pos1 + pos2,
+        total = pos + cash,
+        posDiff = sysPOS - pos,
+        cashDiff = sysCASH - cash,
+        tillDiff = sysTILL - till;
+
+        document.getElementById("pos").innerHTML = RestoreDecimalPoint(pos);
+        document.getElementById("till").innerHTML = RestoreDecimalPoint(till);
+        document.getElementById("cash").innerHTML = RestoreDecimalPoint(cash);
+        document.getElementById("total").innerHTML = RestoreDecimalPoint(total);
+
+        if(sysTILL != NaN) {
+          document.getElementById("tillDiff").innerHTML = RestoreDecimalPoint(tillDiff);
+        }
+
+        if(sysPOS != NaN) {
+          document.getElementById("posDiff").innerHTML = RestoreDecimalPoint(posDiff);
+        }
+
+        if(sysCASH != NaN) {
+          document.getElementById("cashDiff").innerHTML = RestoreDecimalPoint(cashDiff);
+        }
+
+        if(tillYesterday == 0 && changeOfTill == 0) {
+          document.getElementById("cash").innerHTML = '—';
+          document.getElementById("total").innerHTML = '—';
+          document.getElementById("cashDiff").innerHTML = '?';
+        }
+
+        if(pos1 == 0 && pos2 == 0) {
+          document.getElementById("pos").innerHTML = '—';
+          document.getElementById("total").innerHTML = '—';
+          document.getElementById("posDiff").innerHTML = '?';
+        }
+
+        if(till == 0) {
+          document.getElementById("till").innerHTML = '—';
+          document.getElementById("tillDiff").innerHTML = '?';
+        }
       }
-    }
-  </script>
+    </script>
+  </body>
 </html>

@@ -1,13 +1,19 @@
-<!DOCTYPE html>
+<!DOCtype html>
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
     <title>Cash Calculator</title>
 
-    <!-- Styles load at the beginning -->
+    <!-- styles load at the beginning -->
     <style>
       @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap');
-      * {margin: 0; padding: 0; box-sizing: border-box;}
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
       body {
         background-color: #FFFEFA;
         margin: 3vh auto .5vh auto;
@@ -15,8 +21,12 @@
         font-size: 15px;
         font-weight: 400;
       }
+
       input::-webkit-outer-spin-button,
-      input::-webkit-inner-spin-button {-webkit-appearance: none;}
+      input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+      }
+
       input{
         background-color: #FFFEFA;
         font-family: 'Inter', sans-serif;
@@ -30,208 +40,320 @@
       }
     </style>
   </head>
-  
+
   <body>
-  <div class="flex">
-    <div class="flex-item">
-      <!-- left part of the page. Till cash input boxes. -->
-      <h2>TILL</h2>
-      <table class="cash">
-        <tr>
-          <td><input id="a" type="tel" name="10 CENT" min="0"></td>
-          <td>10c</td>
-        </tr>
-        <tr>
-          <td><input id="b" type="tel" name="20 CENT" min="0"></td>
-          <td>20c</td>
-        </tr>
-        <tr>
-          <td><input id="c" type="tel" name="50 CENT" min="0"></td>
-          <td>50c</td>
-        </tr>
-        <tr>
-          <td><input id="d" type="tel" name="1 DOLLAR" min="0"></td>
-          <td>$1</td>
-        </tr>
-        <tr>
-          <td><input id="e" type="tel" name="2 DOLLAR" min="0"></td>
-          <td>$2</td>
-        </tr>
-        <tr>
-          <td><input id="f" type="tel" name="5 DOLLAR" min="0"></td>
-          <td>$5</td>
-        </tr>
-        <tr>
-          <td><input id="g" type="tel" name="10 DOLLAR" min="0"></td>
-          <td>$10</td>
-        </tr>
-        <tr>
-          <td><input id="h" type="tel" name="20 DOLLAR" min="0"></td>
-          <td>$20</td>
-        </tr>
-        <tr>
-          <td><input id="i" type="tel" name="50 DOLLAR" min="0"></td>
-          <td>$50</td>
-        </tr>
-        <tr>
-          <td><input id="j" type="tel" name="100 DOLLAR" min="0"></td>
-          <td>$100</td>
-        </tr>
-        <tr>
-          <td><input id="k" type="tel" name="EXTRA" min="0"></td>
-          <td>EXTRA</td>
-        </tr>
-      </table>
-      <br>
-      <h2>POS</h2>
-      <table>
-        <tr>
-          <td><input id="pos1" type="tel" name="pos total" min="0"></td>
-        </tr>
-        <tr>
-          <td><input id="pos2" type="tel" name="pos total" min="0"></td>
-        </tr>
-      </table>
-    </div>
-    <div class="flex-item valid">
-      <!-- Right part of the page. Result and validation input boxes. -->
-      <div class="result">
-        <h2>Results</h2>
-          <table>
-            <tr>
-              <th>TILL</th>
-              <th>CASH</th>
-              <th>POS</th>
-              <th>TOTAL</th>
-            </tr>
-            <tr>
-              <td id="till">—</td>
-              <td id="cash">—</td>
-              <td id="pos">—</td>
-              <td id="total">—</td>
-            </tr>
-          </table>
+    <div class="flex">
+      <!-- left half of the page. Till cash input boxes. -->
+      <div class="flex-item">
+        <h2>TILL</h2>
+        <table class="cash">
+          <tr>
+            <td><input id="a" type="tel" name="10 CENT" min="0"></td>
+            <td>10c</td>
+          </tr>
+          <tr>
+            <td><input id="b" type="tel" name="20 CENT" min="0"></td>
+            <td>20c</td>
+          </tr>
+          <tr>
+            <td><input id="c" type="tel" name="50 CENT" min="0"></td>
+            <td>50c</td>
+          </tr>
+          <tr>
+            <td><input id="d" type="tel" name="1 DOLLAR" min="0"></td>
+            <td>$1</td>
+          </tr>
+          <tr>
+            <td><input id="e" type="tel" name="2 DOLLAR" min="0"></td>
+            <td>$2</td>
+          </tr>
+          <tr>
+            <td><input id="f" type="tel" name="5 DOLLAR" min="0"></td>
+            <td>$5</td>
+          </tr>
+          <tr>
+            <td><input id="g" type="tel" name="10 DOLLAR" min="0"></td>
+            <td>$10</td>
+          </tr>
+          <tr>
+            <td><input id="h" type="tel" name="20 DOLLAR" min="0"></td>
+            <td>$20</td>
+          </tr>
+          <tr>
+            <td><input id="i" type="tel" name="50 DOLLAR" min="0"></td>
+            <td>$50</td>
+          </tr>
+          <tr>
+            <td><input id="j" type="tel" name="100 DOLLAR" min="0"></td>
+            <td>$100</td>
+          </tr>
+          <tr>
+            <td><input id="k" type="tel" name="EXTRA" min="0"></td>
+            <td>EXTRA</td>
+          </tr>
+        </table>
+
+        <br>
+        <h2>POS</h2>
+        <table>
+          <tr>
+            <td><input id="pos1" type="tel" name="pos total" min="0"></td>
+          </tr>
+
+          <tr>
+            <td><input id="pos2" type="tel" name="pos total" min="0"></td>
+          </tr>
+        </table>
+      </div>
+
+      <!-- Right half of the page. Result and validation input boxes. -->
+      <div class="flex-item valid">
+        <div class="result">
+          <h2>Results</h2>
+            <table>
+              <tr>
+                <th>TILL</th>
+                <th>CASH</th>
+                <th>POS</th>
+                <th>TOTAL</th>
+              </tr>
+              <tr>
+                <td id="till">—</td>
+                <td id="cash">—</td>
+                <td id="pos">—</td>
+                <td id="total">—</td>
+              </tr>
+            </table>
         </div>
+
         <br>
         <h2>Validation</h2>
         <p>Find the number of <strong>TILL yesterday.</strong></p>
         <input id="tillYesterday" type="tel" name="TILL yesterday" min="0">
+
         <br>
         <p>Has the till cash been <strong>taken or added</strong> today?<br>Enter <u>negative</u> number if it's been taken out.</p>
-        <input id="tillChanged" type="tel" name="till taken" min="0">
+        <input id="ChangeOfTill" type="tel" name="till taken" min="0">
+
         <br>
         <p>Copy numbers from ONEPOS to see the <strong>difference.</strong><br>Add more sales in the system if you see <u>negative</u> numbers.</p>
+
         <table>
           <tr>
             <td>
               <input id="sysTILL" type="tel" name="ONEPOS TILL" min="0">
             </td>
-            <td>− TILL = <span id="tillDif">?</span></td>
+            <td>− TILL = <span id="tillDiff">?</span></td>
           </tr>
+
           <tr>
             <td><input id="sysCASH" type="tel" name="ONEPOS CASH" min="0"></td>
-            <td>− CASH = <span id="cashDif">?</span></td>
+            <td>− CASH = <span id="cashDiff">?</span></td>
           </tr>
+
           <tr>
             <td><input id="sysPOS" type="tel" name="ONEPOS POS" min="0"></td>
-            <td>− POS = <span id="posDif">?</span></td>
+            <td>− POS = <span id="posDiff">?</span></td>
           </tr>
-
         </table>
+
       </div>
     </div>
-  <!-- Styles load at the end -->
-  <style>
-    .flex{display: flex; justify-content: center; column-gap: 4em;}
-    .flex-item{min-width:10em; max-width:22em;}
-    p{margin: 0 0 4px 0; line-height: 1.4; letter-spacing: .02em;}
-    h2{margin-bottom: 5px; font-size: 28px; font-weight: 900; letter-spacing: .01em;}
-    table{margin-left: -2px;}
-    .valid h2{margin-bottom:3px;}
-    .valid td{color: gray;}
-    .result h2{margin-bottom: 2px;}
-    .result table{margin-left: -1px;}
-    .result th{font-weight: 700; text-align: left; padding-right: 1.2em;}
-    .result td{color: black; padding: .4em 1.2em 0 .5px;}
-    #tillYesterday, #tillChanged{margin-bottom: 20px;}
-    #tillChanged, #sysCash{margin-top: 2px;}
-  </style>
-  <script type="text/javascript">
-    const ITEMS = ['a','b','c','d','e','f','g','h','i','j','k','pos1','pos2','tillYesterday','tillChanged','sysTILL','sysCASH','sysPOS'];
-    let ii = 0;
-    let si = 1;
-    let lsti = ITEMS.length - 1;
+  </body>
 
+  <!-- styles load at the end -->
+  <style>
+    .flex{
+      display: flex;
+      justify-content: center;
+      column-gap: 4em;
+    }
+
+    .flex-item{
+      min-width: 10em;
+      max-width: 22em;
+    }
+
+    p{
+      margin: 0 0 4px 0;
+      line-height: 1.4;
+      letter-spacing: .02em;
+    }
+
+    h2{
+      margin-bottom: 5px;
+      font-size: 28px;
+      font-weight: 900;
+      letter-spacing: .01em;
+    }
+
+    table{
+      margin-left: -2px;
+    }
+
+    .valid h2{
+      margin-bottom: 3px;
+    }
+
+    .valid td{
+      color: gray;
+    }
+
+    .result h2{
+      margin-bottom: 2px;
+    }
+
+    .result table{
+      margin-left: -1px;
+    }
+
+    .result th{
+      font-weight: 700;
+      text-align: left;
+      padding-right: 1.2em;
+    }
+
+    .result td{
+      color: black;
+      padding: .4em 1.2em 0 .5px;
+    }
+
+    #tillYesterday,
+    #ChangeOfTill{
+      margin-bottom: 20px;
+    }
+
+    #ChangeOfTill,
+    #sysCash{
+      margin-top: 2px;
+    }
+  </style>
+
+  <script type="text/javascript">
+    const ITEMS = ['a','b','c','d','e','f','g','h','i','j','k','pos1','pos2','tillYesterday','ChangeOfTill','sysTILL','sysCASH','sysPOS'];
+
+    let
+    index_active = 0,
+    indexIncrement = 1,
+    indexDecrement = -1;
+
+    // When key held down:
     document.addEventListener('keydown', (event) => {
-      if (event.key == "Shift"){si = -1}
-      if (event.key == "Enter" || event.keyCode == 40){switchFocus()};
-      if (event.keyCode == 38){si = -1; switchFocus()};
+      if (event.key == "Shift") {
+        indexIncrement = -1;
+        indexDecrement = 1;
+      }
+
+      // Go to the next box when Enter or NumPad Enter Key is down
+      if (event.key == "Enter" || event.keyCode == 40) {
+        SwitchBoxFocus(indexIncrement);
+      };
+
+      // Go to the previous box when ArrowUp is down
+      if (event.keyCode == 38) {
+        SwitchBoxFocus(indexDecrement);
+      };
     }, false);
-    
+
+    // When key released:
     document.addEventListener('keyup', (event) => {
-      calculate();
-      if (event.key == "Shift" || event.keyCode == 38){si = 1};
+      CalculateResult();
+
+      if (event.key == "Shift") {
+        indexIncrement = 1;
+        indexDecrement = -1;
+      }
     }, false);
-    
-    function switchFocus(){
-      if (ITEMS.includes(document.activeElement.id)){
-        ii = ITEMS.indexOf(document.activeElement.id) + si;
-      } else if (ii > 0){ii += si}
-      if (ii > lsti){ii = 0}else if(ii < 0){ii = lsti};
-      document.getElementById(ITEMS[ii]).select();
+
+    const INDEX_MAXIMUM = ITEMS.length - 1;
+
+    function SwitchBoxFocus(indexChange) {
+      index_active = ITEMS.indexOf(document.activeElement.id) + indexChange;
+      
+      if (index_active > INDEX_MAXIMUM) {
+        index_active = 0;
+      }
+
+      if (index_active < 0) {
+        index_active = INDEX_MAXIMUM;
+      };
+
+      const BOX = document.getElementById(ITEMS[index_active]);
+      BOX.focus();
+      BOX.select();
     }
     
-    let zz = 10000000000000000;    
-    function dM(x){return x /= zz;}
+    const SCALE = 10000000000000000;
+
+    function RestoreDecimalPoint(number) {
+      return number /= SCALE;
+    }
     
-    function calculate(){
-      let a = document.getElementById("a").value * 0.1 * zz;
-      let b = document.getElementById("b").value * 0.2 * zz;
-      let c = document.getElementById("c").value * 0.5 * zz;
-      let d = document.getElementById("d").value * zz;
-      let e = document.getElementById("e").value * 2 * zz;
-      let f = document.getElementById("f").value * 5 * zz;
-      let g = document.getElementById("g").value * 10 * zz;
-      let h = document.getElementById("h").value * 20 * zz;
-      let i = document.getElementById("i").value * 50 * zz;
-      let j = document.getElementById("j").value * 100 * zz;
-      let k = document.getElementById("k").value * zz;
-      let pos1 = document.getElementById("pos1").value * zz;
-      let pos2 = document.getElementById("pos2").value * zz;
-      let ty = document.getElementById("tillYesterday").value * zz;
-      let tc = document.getElementById("tillChanged").value * zz;
-      let sysCASH = document.getElementById("sysCASH").value * zz;
-      let sysPOS = document.getElementById("sysPOS").value * zz;
-      let sysTILL = document.getElementById("sysTILL").value * zz;
-      let till = a+b+c+d+e+f+g+h+i+j+k;
-      let cash = till - ty - tc;
-      let pos = pos1 + pos2;
-      let total = pos + cash;
-      let posDif = sysPOS - pos;
-      let cashDif = sysCASH - cash;
-      let tillDif = sysTILL - till;
-      document.getElementById("pos").innerHTML = dM(pos);
-      document.getElementById("till").innerHTML = dM(till);
-      document.getElementById("cash").innerHTML = dM(cash);
-      document.getElementById("total").innerHTML = dM(total);
-      if(sysTILL != NaN){document.getElementById("tillDif").innerHTML = dM(tillDif);}
-      if(sysPOS != NaN){document.getElementById("posDif").innerHTML = dM(posDif);}
-      if(sysCASH != NaN){document.getElementById("cashDif").innerHTML = dM(cashDif);}
-      if(ty == 0 && tc ==0){
+    function CalculateResult() {
+      let
+      a = document.getElementById("a").value * 0.1 * SCALE,
+      b = document.getElementById("b").value * 0.2 * SCALE,
+      c = document.getElementById("c").value * 0.5 * SCALE,
+      d = document.getElementById("d").value * SCALE,
+      e = document.getElementById("e").value * 2 * SCALE,
+      f = document.getElementById("f").value * 5 * SCALE,
+      g = document.getElementById("g").value * 10 * SCALE,
+      h = document.getElementById("h").value * 20 * SCALE,
+      i = document.getElementById("i").value * 50 * SCALE,
+      j = document.getElementById("j").value * 100 * SCALE,
+      k = document.getElementById("k").value * SCALE,
+
+      pos1 = document.getElementById("pos1").value * SCALE,
+      pos2 = document.getElementById("pos2").value * SCALE,
+
+      tillYesterday = document.getElementById("tillYesterday").value * SCALE,
+      changeOfTill = document.getElementById("ChangeOfTill").value * SCALE,
+
+      sysCASH = document.getElementById("sysCASH").value * SCALE,
+      sysPOS = document.getElementById("sysPOS").value * SCALE,
+      sysTILL = document.getElementById("sysTILL").value * SCALE,
+
+      till = a+b+c+d+e+f+g+h+i+j+k,
+      cash = till - tillYesterday - changeOfTill,
+      pos = pos1 + pos2,
+      total = pos + cash,
+      posDiff = sysPOS - pos,
+      cashDiff = sysCASH - cash,
+      tillDiff = sysTILL - till;
+
+      document.getElementById("pos").innerHTML = RestoreDecimalPoint(pos);
+      document.getElementById("till").innerHTML = RestoreDecimalPoint(till);
+      document.getElementById("cash").innerHTML = RestoreDecimalPoint(cash);
+      document.getElementById("total").innerHTML = RestoreDecimalPoint(total);
+
+      if(sysTILL != NaN) {
+        document.getElementById("tillDiff").innerHTML = RestoreDecimalPoint(tillDiff);
+      }
+
+      if(sysPOS != NaN) {
+        document.getElementById("posDiff").innerHTML = RestoreDecimalPoint(posDiff);
+      }
+
+      if(sysCASH != NaN) {
+        document.getElementById("cashDiff").innerHTML = RestoreDecimalPoint(cashDiff);
+      }
+
+      if(tillYesterday == 0 && changeOfTill == 0) {
         document.getElementById("cash").innerHTML = '—';
         document.getElementById("total").innerHTML = '—';
-        document.getElementById("cashDif").innerHTML = '?';
+        document.getElementById("cashDiff").innerHTML = '?';
       }
-      if(pos1 == 0 && pos2 ==0){
+
+      if(pos1 == 0 && pos2 == 0) {
         document.getElementById("pos").innerHTML = '—';
         document.getElementById("total").innerHTML = '—';
-        document.getElementById("posDif").innerHTML = '?';
+        document.getElementById("posDiff").innerHTML = '?';
       }
-      if(till == 0){
+
+      if(till == 0) {
         document.getElementById("till").innerHTML = '—';
-        document.getElementById("tillDif").innerHTML = '?';
+        document.getElementById("tillDiff").innerHTML = '?';
       }
     }
   </script>
-  </body>
 </html>

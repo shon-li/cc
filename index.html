@@ -43,52 +43,52 @@
 
   <body>
     <div class="flex">
-      <!-- left half of the page. Till cash input boxes. -->
+      <!-- left half of the page. Till cash input INPUT_boxes. -->
       <div class="flex-item">
         <h2>TILL</h2>
         <table class="cash">
           <tr>
-            <td><input id="a" type="tel" name="10 CENT" min="0"></td>
+            <td><input id="a" type="tel" name="10 CENT"></td>
             <td>10c</td>
           </tr>
           <tr>
-            <td><input id="b" type="tel" name="20 CENT" min="0"></td>
+            <td><input id="b" type="tel" name="20 CENT"></td>
             <td>20c</td>
           </tr>
           <tr>
-            <td><input id="c" type="tel" name="50 CENT" min="0"></td>
+            <td><input id="c" type="tel" name="50 CENT"></td>
             <td>50c</td>
           </tr>
           <tr>
-            <td><input id="d" type="tel" name="1 DOLLAR" min="0"></td>
+            <td><input id="d" type="tel" name="1 DOLLAR"></td>
             <td>$1</td>
           </tr>
           <tr>
-            <td><input id="e" type="tel" name="2 DOLLAR" min="0"></td>
+            <td><input id="e" type="tel" name="2 DOLLAR"></td>
             <td>$2</td>
           </tr>
           <tr>
-            <td><input id="f" type="tel" name="5 DOLLAR" min="0"></td>
+            <td><input id="f" type="tel" name="5 DOLLAR"></td>
             <td>$5</td>
           </tr>
           <tr>
-            <td><input id="g" type="tel" name="10 DOLLAR" min="0"></td>
+            <td><input id="g" type="tel" name="10 DOLLAR"></td>
             <td>$10</td>
           </tr>
           <tr>
-            <td><input id="h" type="tel" name="20 DOLLAR" min="0"></td>
+            <td><input id="h" type="tel" name="20 DOLLAR"></td>
             <td>$20</td>
           </tr>
           <tr>
-            <td><input id="i" type="tel" name="50 DOLLAR" min="0"></td>
+            <td><input id="i" type="tel" name="50 DOLLAR"></td>
             <td>$50</td>
           </tr>
           <tr>
-            <td><input id="j" type="tel" name="100 DOLLAR" min="0"></td>
+            <td><input id="j" type="tel" name="100 DOLLAR"></td>
             <td>$100</td>
           </tr>
           <tr>
-            <td><input id="k" type="tel" name="EXTRA" min="0"></td>
+            <td><input id="k" type="tel" name="EXTRA"></td>
             <td>EXTRA</td>
           </tr>
         </table>
@@ -97,16 +97,16 @@
         <h2>POS</h2>
         <table>
           <tr>
-            <td><input id="pos1" type="tel" name="pos total" min="0"></td>
+            <td><input id="pos1" type="tel" name="POS Box One"></td>
           </tr>
 
           <tr>
-            <td><input id="pos2" type="tel" name="pos total" min="0"></td>
+            <td><input id="pos2" type="tel" name="pos Box Two"></td>
           </tr>
         </table>
       </div>
 
-      <!-- Right half of the page. Result and validation input boxes. -->
+      <!-- Right half of the page. Result and validation input INPUT_boxes. -->
       <div class="flex-item valid">
         <div class="result">
           <h2>Results</h2>
@@ -129,11 +129,11 @@
         <br>
         <h2>Validation</h2>
         <p>Find the number of <strong>TILL yesterday.</strong></p>
-        <input id="tillYesterday" type="tel" name="TILL yesterday" min="0">
+        <input id="tillYesterday" type="tel" name="TILL yesterday">
 
         <br>
         <p>Has the till cash been <strong>taken or added</strong> today?<br>Enter <u>negative</u> number if it's been taken out.</p>
-        <input id="ChangeOfTill" type="tel" name="till taken" min="0">
+        <input id="ChangeOfTill" type="tel" name="till taken">
 
         <br>
         <p>Copy numbers from ONEPOS to see the <strong>difference.</strong><br>Add more sales in the system if you see <u>negative</u> numbers.</p>
@@ -141,18 +141,18 @@
         <table>
           <tr>
             <td>
-              <input id="sysTILL" type="tel" name="ONEPOS TILL" min="0">
+              <input id="sysTILL" type="tel" name="ONEPOS TILL">
             </td>
             <td>− TILL = <span id="tillDiff">?</span></td>
           </tr>
 
           <tr>
-            <td><input id="sysCASH" type="tel" name="ONEPOS CASH" min="0"></td>
+            <td><input id="sysCASH" type="tel" name="ONEPOS CASH"></td>
             <td>− CASH = <span id="cashDiff">?</span></td>
           </tr>
 
           <tr>
-            <td><input id="sysPOS" type="tel" name="ONEPOS POS" min="0"></td>
+            <td><input id="sysPOS" type="tel" name="ONEPOS POS"></td>
             <td>− POS = <span id="posDiff">?</span></td>
           </tr>
         </table>
@@ -229,7 +229,7 @@
     </style>
 
     <script type="text/javascript">
-      const ITEMS = ['a','b','c','d','e','f','g','h','i','j','k','pos1','pos2','tillYesterday','ChangeOfTill','sysTILL','sysCASH','sysPOS'];
+      const INPUT_BOXES = ['a','b','c','d','e','f','g','h','i','j','k','pos1','pos2','tillYesterday','ChangeOfTill','sysTILL','sysCASH','sysPOS'];
 
       let
       index_active = 0,
@@ -264,10 +264,10 @@
         }
       }, false);
 
-      const INDEX_MAXIMUM = ITEMS.length - 1;
+      const INDEX_MAXIMUM = INPUT_BOXES.length - 1;
 
       function SwitchBoxFocus(indexChange) {
-        index_active = ITEMS.indexOf(document.activeElement.id) + indexChange;
+        index_active = INPUT_BOXES.indexOf(document.activeElement.id) + indexChange;
         
         if (index_active > INDEX_MAXIMUM) {
           index_active = 0;
@@ -277,12 +277,11 @@
           index_active = INDEX_MAXIMUM;
         };
 
-        const BOX = document.getElementById(ITEMS[index_active]);
-        BOX.focus();
-        BOX.select();
+        // Wait 1 millisecond before selecting the box
+        setTimeout(() => document.getElementById(INPUT_BOXES[index_active]).select(), 1);
       }
       
-      const SCALE = 10000000000000000;
+      const SCALE = 1000000000000000000;
 
       function RestoreDecimalPoint(number) {
         return number /= SCALE;
@@ -312,7 +311,7 @@
         sysPOS = document.getElementById("sysPOS").value * SCALE,
         sysTILL = document.getElementById("sysTILL").value * SCALE,
 
-        till = a+b+c+d+e+f+g+h+i+j+k,
+        till = a + b + c + d + e + f + g + h + i + j + k,
         cash = till - tillYesterday - changeOfTill,
         pos = pos1 + pos2,
         total = pos + cash,

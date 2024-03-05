@@ -9,17 +9,17 @@
       @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap');
 
       * {
-        margin: 0;
-        padding: 0;
+        margin:     0;
+        padding:    0;
         box-sizing: border-box;
       }
 
       body {
         background-color: #FFFEFA;
-        margin: 3vh auto .5vh auto;
-        font-family: 'Inter', sans-serif;
-        font-size: 15px;
-        font-weight: 400;
+        margin:           3vh auto .5vh auto;
+        font-family:      'Inter', sans-serif;
+        font-size:        15px;
+        font-weight:      400;
       }
 
       input::-webkit-outer-spin-button,
@@ -29,14 +29,14 @@
 
       input{
         background-color: #FFFEFA;
-        font-family: 'Inter', sans-serif;
-        font-size: 14px;
-        text-align: center;
-        margin: 0px 2px 2px 1px;
-        height: 2em;
-        width: 6.4em;
-        border-radius: 3px;
-        border: 1px dotted black;
+        font-family:      'Inter', sans-serif;
+        font-size:        14px;
+        text-align:       center;
+        margin:           0px 2px 2px 1px;
+        height:           2em;
+        width:            6.4em;
+        border-radius:    3px;
+        border:           1px dotted black;
       }
     </style>
   </head>
@@ -97,11 +97,11 @@
         <h2>POS</h2>
         <table>
           <tr>
-            <td><input id="pos1" type="tel" name="POS Box One"></td>
+            <td><input id="posOne" type="tel" name="POS Number One"></td>
           </tr>
 
           <tr>
-            <td><input id="pos2" type="tel" name="pos Box Two"></td>
+            <td><input id="posTwo" type="tel" name="POS Number Two"></td>
           </tr>
         </table>
       </div>
@@ -163,9 +163,9 @@
     <!-- styles load at the end -->
     <style>
       .flex{
-        display: flex;
+        display:         flex;
         justify-content: center;
-        column-gap: 4em;
+        column-gap:      4em;
       }
 
       .flex-item{
@@ -174,15 +174,15 @@
       }
 
       p{
-        margin: 0 0 4px 0;
-        line-height: 1.4;
+        margin:         0 0 4px 0;
+        line-height:    1.4;
         letter-spacing: .02em;
       }
 
       h2{
-        margin-bottom: 5px;
-        font-size: 28px;
-        font-weight: 900;
+        margin-bottom:  5px;
+        font-size:      28px;
+        font-weight:    900;
         letter-spacing: .01em;
       }
 
@@ -207,13 +207,13 @@
       }
 
       .result th{
-        font-weight: 700;
-        text-align: left;
+        font-weight:   700;
+        text-align:    left;
         padding-right: 1.2em;
       }
 
       .result td{
-        color: black;
+        color:   black;
         padding: .4em 1.2em 0 .5px;
       }
 
@@ -229,29 +229,29 @@
     </style>
 
     <script type="text/javascript">
-      const INPUT_BOXES = ['a','b','c','d','e','f','g','h','i','j','k','pos1','pos2','tillYesterday','ChangeOfTill','sysTILL','sysCASH','sysPOS'];
+      const INPUT_BOXES = ['a','b','c','d','e','f','g','h','i','j','k','posOne','posTwo','tillYesterday','ChangeOfTill','sysTILL','sysCASH','sysPOS'];
 
       let
-      index_active = 0,
-      indexIncrement = 1,
+      index_active   =  0,
+      indexIncrement =  1,
       indexDecrement = -1;
 
       // When key held down:
       document.addEventListener('keydown', (event) => {
         if (event.key == "Shift") {
           indexIncrement = -1;
-          indexDecrement = 1;
+          indexDecrement =  1;
         }
 
         // Go to the next box when Enter or NumPad Enter Key is down
         if (event.key == "Enter" || event.keyCode == 40) {
           SwitchBoxFocus(indexIncrement);
-        };
+        }
 
         // Go to the previous box when ArrowUp is down
         if (event.keyCode == 38) {
           SwitchBoxFocus(indexDecrement);
-        };
+        }
       }, false);
 
       // When key released:
@@ -259,7 +259,7 @@
         CalculateResult();
 
         if (event.key == "Shift") {
-          indexIncrement = 1;
+          indexIncrement =  1;
           indexDecrement = -1;
         }
       }, false);
@@ -275,13 +275,13 @@
 
         if (index_active < 0) {
           index_active = INDEX_MAXIMUM;
-        };
+        }
 
         // Wait 1 millisecond before selecting the box
         setTimeout(() => document.getElementById(INPUT_BOXES[index_active]).select(), 1);
       }
       
-      const SCALE = 1000000000000000000;
+      const SCALE = 10000000000000000;
 
       function RestoreDecimalPoint(number) {
         return number /= SCALE;
@@ -292,64 +292,64 @@
         a = document.getElementById("a").value * 0.1 * SCALE,
         b = document.getElementById("b").value * 0.2 * SCALE,
         c = document.getElementById("c").value * 0.5 * SCALE,
-        d = document.getElementById("d").value * SCALE,
-        e = document.getElementById("e").value * 2 * SCALE,
-        f = document.getElementById("f").value * 5 * SCALE,
-        g = document.getElementById("g").value * 10 * SCALE,
-        h = document.getElementById("h").value * 20 * SCALE,
-        i = document.getElementById("i").value * 50 * SCALE,
+        d = document.getElementById("d").value       * SCALE,
+        e = document.getElementById("e").value *   2 * SCALE,
+        f = document.getElementById("f").value *   5 * SCALE,
+        g = document.getElementById("g").value *  10 * SCALE,
+        h = document.getElementById("h").value *  20 * SCALE,
+        i = document.getElementById("i").value *  50 * SCALE,
         j = document.getElementById("j").value * 100 * SCALE,
-        k = document.getElementById("k").value * SCALE,
+        k = document.getElementById("k").value       * SCALE,
 
-        pos1 = document.getElementById("pos1").value * SCALE,
-        pos2 = document.getElementById("pos2").value * SCALE,
+        posOne = document.getElementById("posOne").value * SCALE,
+        posTwo = document.getElementById("posTwo").value * SCALE,
 
         tillYesterday = document.getElementById("tillYesterday").value * SCALE,
-        changeOfTill = document.getElementById("ChangeOfTill").value * SCALE,
+        changeOfTill  = document.getElementById("ChangeOfTill" ).value * SCALE,
 
         sysCASH = document.getElementById("sysCASH").value * SCALE,
-        sysPOS = document.getElementById("sysPOS").value * SCALE,
+        sysPOS  = document.getElementById("sysPOS" ).value * SCALE,
         sysTILL = document.getElementById("sysTILL").value * SCALE,
 
-        till = a + b + c + d + e + f + g + h + i + j + k,
-        cash = till - tillYesterday - changeOfTill,
-        pos = pos1 + pos2,
-        total = pos + cash,
-        posDiff = sysPOS - pos,
+        till     = a + b + c + d + e + f + g + h + i + j + k,
+        cash     = till    - tillYesterday - changeOfTill,
+        pos      = posOne  + posTwo,
+        total    = pos     + cash,
+        posDiff  = sysPOS  - pos,
         cashDiff = sysCASH - cash,
         tillDiff = sysTILL - till;
 
-        document.getElementById("pos").innerHTML = RestoreDecimalPoint(pos);
-        document.getElementById("till").innerHTML = RestoreDecimalPoint(till);
-        document.getElementById("cash").innerHTML = RestoreDecimalPoint(cash);
+        document.getElementById("pos"  ).innerHTML = RestoreDecimalPoint(pos  );
+        document.getElementById("till" ).innerHTML = RestoreDecimalPoint(till );
+        document.getElementById("cash" ).innerHTML = RestoreDecimalPoint(cash );
         document.getElementById("total").innerHTML = RestoreDecimalPoint(total);
 
-        if(sysTILL != NaN) {
+        if (sysTILL != NaN) {
           document.getElementById("tillDiff").innerHTML = RestoreDecimalPoint(tillDiff);
         }
 
-        if(sysPOS != NaN) {
-          document.getElementById("posDiff").innerHTML = RestoreDecimalPoint(posDiff);
+        if (sysPOS != NaN) {
+          document.getElementById("posDiff" ).innerHTML = RestoreDecimalPoint(posDiff );
         }
 
-        if(sysCASH != NaN) {
+        if (sysCASH != NaN) {
           document.getElementById("cashDiff").innerHTML = RestoreDecimalPoint(cashDiff);
         }
 
-        if(tillYesterday == 0 && changeOfTill == 0) {
-          document.getElementById("cash").innerHTML = '—';
-          document.getElementById("total").innerHTML = '—';
+        if (tillYesterday == 0 && changeOfTill == 0) {
+          document.getElementById("cash"    ).innerHTML = '—';
+          document.getElementById("total"   ).innerHTML = '—';
           document.getElementById("cashDiff").innerHTML = '?';
         }
 
-        if(pos1 == 0 && pos2 == 0) {
-          document.getElementById("pos").innerHTML = '—';
-          document.getElementById("total").innerHTML = '—';
-          document.getElementById("posDiff").innerHTML = '?';
+        if (posOne == 0 && posTwo == 0) {
+          document.getElementById("pos"     ).innerHTML = '—';
+          document.getElementById("total"   ).innerHTML = '—';
+          document.getElementById("posDiff" ).innerHTML = '?';
         }
 
-        if(till == 0) {
-          document.getElementById("till").innerHTML = '—';
+        if (till == 0) {
+          document.getElementById("till"    ).innerHTML = '—';
           document.getElementById("tillDiff").innerHTML = '?';
         }
       }

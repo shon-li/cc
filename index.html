@@ -301,15 +301,13 @@
         j = document.getElementById("j").value * 100 * SCALE,
         k = document.getElementById("k").value       * SCALE,
 
-        posOne = document.getElementById("posOne").value * SCALE,
-        posTwo = document.getElementById("posTwo").value * SCALE,
-
+        posOne        = document.getElementById("posOne"       ).value * SCALE,
+        posTwo        = document.getElementById("posTwo"       ).value * SCALE,
         tillYesterday = document.getElementById("tillYesterday").value * SCALE,
         changeOfTill  = document.getElementById("ChangeOfTill" ).value * SCALE,
-
-        sysCASH = document.getElementById("sysCASH").value * SCALE,
-        sysPOS  = document.getElementById("sysPOS" ).value * SCALE,
-        sysTILL = document.getElementById("sysTILL").value * SCALE,
+        sysCASH       = document.getElementById("sysCASH"      ).value * SCALE,
+        sysPOS        = document.getElementById("sysPOS"       ).value * SCALE,
+        sysTILL       = document.getElementById("sysTILL"      ).value * SCALE,
 
         till     = a + b + c + d + e + f + g + h + i + j + k,
         cash     = till    - tillYesterday - changeOfTill,
@@ -328,7 +326,7 @@
           document.getElementById("tillDiff").innerHTML = RestoreDecimalPoint(tillDiff);
         }
 
-        if (sysPOS != NaN) {
+        if (sysPOS  != NaN) {
           document.getElementById("posDiff" ).innerHTML = RestoreDecimalPoint(posDiff );
         }
 
